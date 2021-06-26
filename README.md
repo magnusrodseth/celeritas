@@ -1,5 +1,9 @@
 # Celeritas: Visualizing Data Structures and Algorithms ⚡️
 
+## Live Demo 🎮
+
+You can see a live demo of the website by clicking **[here](https://celeritas.vercel.app/)**. Enjoy!
+
 ## Description ✏️
 
 Celeritas is a website for visualizing data structures and algorithms.
