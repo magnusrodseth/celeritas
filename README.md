@@ -31,3 +31,5 @@ yarn dev
 # Run application in development mode using npm
 npm dev
 ```
+
+Open up your browser. The application should now be running on `localhost:3000`!
