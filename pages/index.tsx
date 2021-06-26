@@ -24,11 +24,11 @@ const Index = () => {
               <a
                 className={classNames(
                   "inline-flex items-center justify-center px-5 py-3 border border-transparent",
-                  "text-base font-medium rounded-md text-gray-900 bg-yellow-300 hover:bg-yellow-200",
+                  "text-base font-medium rounded-md text-gray-900 bg-yellow-200 hover:bg-white",
                   "transition transform duration-500 ease-in-out"
                 )}
               >
-                Merge Sort
+                Link 1
               </a>
             </Link>
           </div>
@@ -37,11 +37,12 @@ const Index = () => {
               <a
                 className={classNames(
                   "inline-flex items-center justify-center px-5 py-3 border border-transparent",
-                  "text-base font-medium rounded-md text-yellow-400 bg-white hover:bg-gray-100",
+                  "text-base font-medium rounded-md text-yellow-500 bg-white hover:bg-white",
+                  "hover:text-gray-900",
                   "transition transform duration-500 ease-in-out"
                 )}
               >
-                Dijkstra&apos;s Algorithm
+                Link 2
               </a>
             </Link>
           </div>
