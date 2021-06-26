@@ -4,13 +4,15 @@
 
 You can see a live demo of the website by clicking **[here](https://celeritas.vercel.app/)**. Enjoy!
 
+Note that this project is currently a work in progress, as of summer 2021.
+
 ## Description ✏️
 
 Celeritas is a website for visualizing data structures and algorithms.
 
 ## Developer Information 🙋🏼‍♂️
 
-Developed by Magnus Rødseth
+Developed by Magnus Rødseth.
 
 ## Tech Stack 🛠
 
