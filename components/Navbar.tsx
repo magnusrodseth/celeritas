@@ -11,7 +11,7 @@ import DropdownChild from "./DropdownChild";
 
 const Navbar = () => {
   return (
-    <Disclosure as="nav" className="font-mono text-center">
+    <Disclosure as="nav" className="font-mono text-center py-4">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
