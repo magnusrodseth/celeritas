@@ -11,11 +11,13 @@ const Layout = ({ children }: any) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <Navbar />
+      <div className="flex flex-col h-screen justify-between">
+        <Navbar />
 
-      <main>{children}</main>
+        <main className="">{children}</main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

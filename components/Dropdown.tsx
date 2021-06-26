@@ -13,7 +13,7 @@ interface DropdownProps {
 
 const Dropdown = ({ title, children }: DropdownProps) => {
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left z-50">
       {({ open }) => (
         <>
           <div>
