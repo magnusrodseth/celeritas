@@ -6,6 +6,10 @@ You can see a live demo of the website by clicking **[here](https://celeritas.ve
 
 Note that this project is currently a work in progress, as of summer 2021.
 
+## Snapshot 📸
+
+![Snapshot of Celeritas Landing Page](./static/landing-page.png)
+
 ## Description ✏️
 
 > Celeritas is a Latin word, translated as "swiftness" or "speed". It is often given as the origin of the symbol c, the universal notation for the speed of light in a vacuum, as popularized in Albert Einstein's famous equation E = mc².

@@ -28,7 +28,7 @@ const Index = () => {
                   "transition transform duration-500 ease-in-out"
                 )}
               >
-                Link 1
+                Merge Sort
               </a>
             </Link>
           </div>
@@ -41,7 +41,7 @@ const Index = () => {
                   "transition transform duration-500 ease-in-out"
                 )}
               >
-                Link 2
+                Dijkstra&apos;s Algorithm
               </a>
             </Link>
           </div>
