@@ -6,7 +6,7 @@ export interface NavigationChild {
 const navigation: { [title: string]: NavigationChild[] } = {
     "Basic Data Structures": [
         { name: "Arrays", href: "/data-structures/arrays" },
-        { name: "Linked Lists", href: "/data-structures/#" },
+        { name: "Linked Lists", href: "/data-structures/linked-lists" },
         { name: "Stacks", href: "/data-structures/#" },
         { name: "Queues", href: "/data-structures/#" },
         { name: "Hash Tables", href: "/data-structures/#" },
