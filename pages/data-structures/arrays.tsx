@@ -1,8 +1,16 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import Jumbotron from "../../components/Jumbotron";
+import Markdown from "../../components/Markdown";
+import markdownContent from "../../markdown/Arrays";
 
 const Arrays = () => {
-  // TODO: Use Spectacle to display an Array class made from the ground up
+  const [markdown, setMarkdown] = useState("");
+
+  useEffect(() => {
+    setMarkdown(markdownContent);
+  }, []);
 
   return (
     <div>
@@ -12,6 +20,8 @@ const Arrays = () => {
           "Stores items sequentially. Great when we know how many items we have."
         }
       />
+
+      <Markdown>{markdown}</Markdown>
     </div>
   );
 };
