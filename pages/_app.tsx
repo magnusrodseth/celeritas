@@ -2,6 +2,7 @@ import { AppProps } from "next/dist/next-server/lib/router/router";
 import React from "react";
 import Layout from "../components/Layout";
 import "tailwindcss/tailwind.css";
+import "../styles/markdown.css";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
