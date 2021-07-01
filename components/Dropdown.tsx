@@ -13,11 +13,22 @@ interface DropdownProps {
 
 const Dropdown = ({ title, children }: DropdownProps) => {
   return (
-    <Menu as="div" className="relative inline-block text-left z-50">
+    <Menu
+      as="div"
+      className={classNames("relative inline-block text-left z-50")}
+    >
       {({ open }) => (
         <>
           <div>
-            <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+            <Menu.Button
+              className={classNames(
+                "focus:ring-yellow-300",
+                "focus:outline-none focus:ring-2 focus:border-transparent",
+                "inline-flex justify-center w-full rounded-md border border-gray-300",
+                "shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50",
+                "focus:outline-none font-mono"
+              )}
+            >
               {title}
               <ChevronDownIcon
                 className="-mr-1 ml-2 h-5 w-5"
@@ -40,7 +51,7 @@ const Dropdown = ({ title, children }: DropdownProps) => {
               static
               className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
             >
-              <div className="py-1">{children}</div>
+              <div className="py-1 cursor-pointer">{children}</div>
             </Menu.Items>
           </Transition>
         </>
