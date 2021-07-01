@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "../utils/classNames";
 
 interface JumbotronProps {
   title: string;
@@ -15,7 +16,12 @@ const Jumbotron: React.FC<JumbotronProps> = ({ title, description }) => {
         {description ? (
           <div className="px-8 w-3/4">
             <h4 className="tracking-wide sm:text-4xl">
-              <span className="block text-md text-gray-900 font-light">
+              <span
+                className={classNames(
+                  "block text-gray-900 font-light",
+                  "text-md"
+                )}
+              >
                 {description}
               </span>
             </h4>

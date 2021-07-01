@@ -1,0 +1,100 @@
+const markdownContent = `
+~~~python
+
+from typing import List
+
+class Stack:
+    __size: int
+    __stack: List[int]
+    __counter: int = 0
+
+    @property
+    def stack(self):
+        return self.__stack
+
+    @property
+    def counter(self):
+        return self.__counter
+
+    def __init__(self, size):
+        if size <= 0:
+            raise AttributeError("Size of stack must be greater than 0.")
+
+        self.__size = size
+
+        # Initialize stack with 0 values
+        self.__stack = [0] * self.__size
+
+    def push(self, item: int) -> None:
+        """
+        Pushes an item at the top of the stack.
+
+        :param item: is the item to push.
+        :raise OverflowError: if the stack is full.
+        """
+        if self.__counter == len(self.__stack):
+            raise OverflowError("The stack is overflowed.")
+
+        self.__stack[self.__counter] = item
+        self.__counter += 1
+
+    def pop(self):
+        """
+        Pops the top item off the stack and shrinks the stack by 1 item.
+
+        :raise ValueError: if the stack is empty.
+        :return: the popped value.
+        """
+        if self.is_empty():
+            raise ValueError("There are no items to pop, because the stack is empty.")
+
+        popped = self.__stack[self.__counter - 1]
+
+        new_stack: List[int] = [0] * self.__counter
+
+        # Shrink stack by one item
+        for i in range(self.__counter):
+            new_stack[i] = self.__stack[i]
+
+        self.__stack = new_stack
+        self.__counter -= 1
+
+        return popped
+
+    def peek(self):
+        """
+        Peeks the top item in the stack. Does not shrink the stack.
+
+        :return: the peeked value.
+        """
+        return self.__stack[self.__counter - 1]
+
+    def is_empty(self) -> bool:
+        """
+        Checks if the stack is empty.
+
+        :return: a boolean value determining if the stack is empty.
+        """
+        return self.__counter == 0
+
+    def print(self) -> None:
+        """
+        Prints the content of the stack.
+        Note that a stack should not usually concern itself with printing the content.
+        However, for this example, this method is added to the class, for simplicity.
+        """
+        s = "["
+
+        for i in range(self.__counter):
+            if i == self.__counter - 1:
+                s += f'{str(self.__stack[i])}'
+            else:
+                s += f'{str(self.__stack[i])}, '
+
+        s += "]"
+
+        print(s)
+~~~
+`
+
+export default markdownContent
