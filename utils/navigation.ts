@@ -8,8 +8,8 @@ const navigation: { [title: string]: NavigationChild[] } = {
         { name: "Arrays", href: "/data-structures/arrays" },
         { name: "Linked Lists", href: "/data-structures/linked-lists" },
         { name: "Stacks", href: "/data-structures/stacks" },
-        { name: "Queues", href: "/data-structures/#" },
-        { name: "Hash Tables", href: "/data-structures/#" },
+        { name: "Queues", href: "/data-structures/queues" },
+        { name: "Hash Tables", href: "/data-structures/hash-tables" },
     ],
     // "Advanced Data Structures": [
     //     { name: "Binary Trees", href: "/data-structures/#" },

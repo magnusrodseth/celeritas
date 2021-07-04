@@ -1,16 +1,15 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron";
-import exercises from "../../utils/exercises/linkedLists";
+import exercises from "../../utils/exercises/queues";
 import ExerciseCollection from "../../components/ExerciseCollection";
 
-const LinkedLists = () => {
+const Queues = () => {
   return (
     <div className="flex flex-col justify-center">
       <Jumbotron
-        title="Linked Lists"
-        description={
-          "Stores nodes sequentially. Each nodes holds a value and address of the next node in memory."
-        }
+        title="Queues"
+        description={`
+        Think of a queue in an airport. The first person in line gets served first. A first-in first-out (FIFO) data structure.`}
       />
 
       <ExerciseCollection exercises={exercises} />
@@ -18,4 +17,4 @@ const LinkedLists = () => {
   );
 };
 
-export default LinkedLists;
+export default Queues;
