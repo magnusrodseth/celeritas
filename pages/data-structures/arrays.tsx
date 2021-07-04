@@ -1,19 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import ExerciseCollection from "../../components/ExerciseCollection";
 import Jumbotron from "../../components/Jumbotron";
-import Markdown from "../../components/Markdown";
-import markdownContent from "../../markdown/Arrays";
+import exercises from "../../utils/exercises/arrays";
 
 const Arrays = () => {
-  const [markdown, setMarkdown] = useState("");
-
-  useEffect(() => {
-    setMarkdown(markdownContent);
-  }, []);
-
   return (
-    <div>
+    <div className="flex flex-col justify-center">
       <Jumbotron
         title="Arrays"
         description={
@@ -21,7 +13,8 @@ const Arrays = () => {
         }
       />
 
-      <Markdown>{markdown}</Markdown>
+
+      <ExerciseCollection exercises={exercises} />
     </div>
   );
 };

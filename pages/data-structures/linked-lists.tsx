@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Markdown from "../../components/Markdown";
+import React from "react";
 import Jumbotron from "../../components/Jumbotron";
-import markdownContent from "../../markdown/LinkedLists";
+import exercises from "../../utils/exercises/linkedLists";
+import ExerciseCollection from "../../components/ExerciseCollection";
 
 const LinkedLists = () => {
-  const [markdown, setMarkdown] = useState("");
-
-  useEffect(() => {
-    setMarkdown(markdownContent);
-  }, []);
 
   return (
-    <div>
+    <div className="flex flex-col justify-center">
       <Jumbotron
         title="Linked Lists"
         description={
@@ -19,7 +14,7 @@ const LinkedLists = () => {
         }
       />
 
-      <Markdown>{markdown}</Markdown>
+      <ExerciseCollection exercises={exercises} />
     </div>
   );
 };

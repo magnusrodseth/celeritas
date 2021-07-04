@@ -3,8 +3,6 @@ import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import classNames from "../utils/classNames";
-import { NavigationChild } from "../utils/navigation";
-import Link from "next/link";
 
 interface DropdownProps {
   title: string;
