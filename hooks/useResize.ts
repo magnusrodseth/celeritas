@@ -1,23 +1,37 @@
 import { useState, useEffect } from "react"
 
 const useResize = (ref: React.RefObject<HTMLDivElement>) => {
-    const [width, setWidth] = useState(0)
-    const [height, setHeight] = useState(0)
+    const getDimensions = () => ref.current
+        ? {
+            width: ref.current.offsetWidth,
+            height: ref.current.offsetHeight
+        }
+        : {
+            width: 0,
+            height: 0
+        }
+
+
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
     useEffect(() => {
         const handleResize = () => {
-            setWidth(ref.current ? ref.current.offsetWidth : 0)
-            setHeight(ref.current ? ref.current.offsetHeight : 0)
+            setDimensions(getDimensions())
         }
 
-        window.addEventListener('resize', handleResize)
+        if (ref.current) {
+            setDimensions(getDimensions())
+        }
+
+        window.addEventListener("resize", handleResize)
 
         return () => {
-            window.removeEventListener('resize', handleResize)
+            window.removeEventListener("resize", handleResize)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ref])
 
-    return { width, height }
+    return dimensions;
 }
 
 export default useResize
