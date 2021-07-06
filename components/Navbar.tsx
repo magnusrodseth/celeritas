@@ -1,10 +1,8 @@
 import React from "react";
-import { Disclosure, Menu } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import classNames from "../utils/classNames";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import Image from "next/image";
-import logo from "../public/logo.png";
 import navigation from "../utils/navigation";
 import Dropdown from "./Dropdown";
 import DropdownChild from "./DropdownChild";

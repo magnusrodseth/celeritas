@@ -11,14 +11,14 @@ const navigation: { [title: string]: NavigationChild[] } = {
         { name: "Queues", href: "/data-structures/queues" },
         { name: "Hash Tables", href: "/data-structures/hash-tables" },
     ],
-    // "Advanced Data Structures": [
-    //     { name: "Binary Trees", href: "/data-structures/#" },
-    //     { name: "AVL Trees", href: "/data-structures/#" },
-    //     { name: "Heaps", href: "/data-structures/#" },
-    //     { name: "Tries", href: "/data-structures/#" },
-    //     { name: "Graphs", href: "/data-structures/#" },
-    //     { name: "Undirected Graphs", href: "/data-structures/#" },
-    // ],
+    "Non-linear Data Structures": [
+        { name: "Binary Trees", href: "/data-structures/#" },
+        // { name: "AVL Trees", href: "/data-structures/#" },
+        // { name: "Heaps", href: "/data-structures/#" },
+        // { name: "Tries", href: "/data-structures/#" },
+        // { name: "Graphs", href: "/data-structures/#" },
+        // { name: "Undirected Graphs", href: "/data-structures/#" },
+    ]
     // "Sorting Algorithms": [
     //     { name: "Bubble Sort", href: "/data-structures/#" },
     //     { name: "Selection Sort", href: "/data-structures/#" },
