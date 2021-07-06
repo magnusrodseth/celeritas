@@ -3,16 +3,8 @@ const getBarHeight = (value: number) => {
     if (value >= 0 && value <= 3) {
         return "3px";
     }
-    // Values less than zero should point downwards
-    else if (value < 0) {
-        return `-${Math.abs(value * 3)}px`;
-    }
-    // Values greater than zero should point upwards
-    else if (value > 0) {
-        return `${value * 3}px`;
-    }
 
-    return "";
+    return `${Math.abs(value * 3)}px`
 }
 
 export default getBarHeight

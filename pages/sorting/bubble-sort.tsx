@@ -53,7 +53,7 @@ const BubbleSort = () => {
         Et nihil autem rerum voluptatem sequi est.`}
       />
 
-      <SortingForm
+      {/* <SortingForm
         minValue={minValue}
         maxValue={maxValue}
         numberOfElements={numberOfElements}
@@ -62,8 +62,10 @@ const BubbleSort = () => {
         handleNumberOfElements={handleNumberOfElements}
         handleSubmit={handleSubmit}
       />
-      
-      <BarChart array={array} />
+
+      <BarChart array={array} /> */}
+
+      <h1 className="text-2xl font-mono mx-auto my-4">Currently a work in progress.</h1>
     </div>
   );
 };
