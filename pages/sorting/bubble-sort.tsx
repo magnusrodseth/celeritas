@@ -62,7 +62,7 @@ const BubbleSort = () => {
         handleNumberOfElements={handleNumberOfElements}
         handleSubmit={handleSubmit}
       />
-
+      
       <BarChart array={array} />
     </div>
   );

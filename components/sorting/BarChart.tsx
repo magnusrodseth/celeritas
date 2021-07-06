@@ -15,21 +15,26 @@ const BarChart: React.FC<BarChartProps> = ({ array }) => {
 
   return (
     <div
-      className="flex flex-row justify-center items-center w-screen"
+      className="flex flex-row mx-auto justify-center items-center w-3/4 h-80"
       ref={ref}
     >
       {array.map((value, index) => {
+        // Dynamically calculate the BarChart child dimensions
+        const dynamicWidth = `${width / array.length}px`;
+        const dynamicMarginX = `${width / array.length / 10}px`;
+
         const styles = {
           height: getBarHeight(value),
-          marginLeft: "2px",
-          marginRight: "2px",
+          marginLeft: dynamicMarginX,
+          marginRight: dynamicMarginX,
+          width: dynamicWidth,
         };
 
         return (
           <div
             key={index}
             style={styles}
-            className={classNames("w-4 bg-yellow-300")}
+            className={classNames("bg-yellow-300")}
           />
         );
       })}

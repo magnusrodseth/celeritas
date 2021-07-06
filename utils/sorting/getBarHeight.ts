@@ -5,11 +5,11 @@ const getBarHeight = (value: number) => {
     }
     // Values less than zero should point downwards
     else if (value < 0) {
-        return `-${Math.abs(value * 2)}px`;
+        return `-${Math.abs(value * 3)}px`;
     }
     // Values greater than zero should point upwards
     else if (value > 0) {
-        return `${value * 2}px`;
+        return `${value * 3}px`;
     }
 
     return "";
