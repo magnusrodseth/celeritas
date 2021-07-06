@@ -1,4 +1,4 @@
-import LinkedList from "../../markdown/linked-lists/LinkedList";
+import LinkedList from "../../markdown/data-structures/linked-lists/LinkedList";
 
 const exercises = [
     {

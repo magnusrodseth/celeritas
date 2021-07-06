@@ -1,4 +1,4 @@
-import Array from "../../markdown/arrays/Array";
+import Array from "../../markdown/data-structures/arrays/Array";
 
 const exercises = [
     {

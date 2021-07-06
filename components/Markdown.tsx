@@ -23,6 +23,7 @@ const Markdown: React.FC<MarkdownProps> = ({
           style={okaidia}
           customStyle={{ overflow: "hidden" }}
           language={match[1]}
+          showLineNumbers
           PreTag="div"
           // eslint-disable-next-line react/no-children-prop
           children={String(children).replace(/\n$/, "")}

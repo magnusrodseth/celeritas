@@ -1,6 +1,6 @@
-import Stack from "../../markdown/stacks/Stack";
-import BalancedExpression from "../../markdown/stacks/BalancedExpression";
-import ReverseString from "../../markdown/stacks/ReverseString";
+import Stack from "../../markdown/data-structures/stacks/Stack";
+import BalancedExpression from "../../markdown/data-structures/stacks/BalancedExpression";
+import ReverseString from "../../markdown/data-structures/stacks/ReverseString";
 
 const exercises = [
     {
