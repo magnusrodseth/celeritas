@@ -8,7 +8,7 @@ Note that this project is currently a work in progress, as of summer 2021.
 
 ## Snapshot 📸
 
-![Snapshot of Celeritas Landing Page](./static/landing-page.png)
+![Snapshot of Celeritas Landing Page](./demo/landing-page.png)
 
 ## Description ✏️
 
