@@ -25,7 +25,9 @@ const Grid: React.FC<GridProps> = ({ columns, rows }) => {
   const [numberOfColumns, setNumberOfColumns] = useState(columns);
 
   useEffect(() => {
-    if (width >= PIXEL_WIDTH_SMALL && width < PIXEL_WIDTH_MEDIUM) {
+    if (width < PIXEL_WIDTH_SMALL) {
+      setNumberOfColumns(10);
+    } else if (width >= PIXEL_WIDTH_SMALL && width < PIXEL_WIDTH_MEDIUM) {
       setNumberOfColumns(13);
     } else if (width >= PIXEL_WIDTH_MEDIUM && width < PIXEL_WIDTH_LARGE) {
       setNumberOfColumns(18);
