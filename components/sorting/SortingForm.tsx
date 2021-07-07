@@ -103,7 +103,7 @@ const SortingForm: React.FC<SortingFormProps> = ({
             type="submit"
             className={classNames(
               "mx-4 inline-flex items-center justify-center px-6 py-2 border border-transparent",
-              "text-base font-medium rounded-md text-gray-900 bg-yellow-300 hover:bg-gray-300",
+              "text-base font-medium rounded-md text-gray-900 bg-yellow-300 hover:bg-indigo-300",
               "transition transform duration-500 ease-in-out uppercase tracking-wider"
             )}
             onClick={handleSubmit}
