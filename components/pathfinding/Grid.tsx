@@ -51,7 +51,7 @@ const Grid: React.FC<GridProps> = ({ columns, rows }) => {
               <Cell
                 key={index}
                 className={classNames(
-                  "w-8 h-8 m-0.5 bg-gray-200"
+                  "w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 m-0.5 bg-gray-200"
                 )}
               />
             ))}
