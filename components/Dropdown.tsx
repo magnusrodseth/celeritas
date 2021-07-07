@@ -13,7 +13,7 @@ const Dropdown = ({ title, children }: DropdownProps) => {
   return (
     <Menu
       as="div"
-      className={classNames("relative inline-block text-left z-50")}
+      className={classNames("relative inline-block text-left")}
     >
       {({ open }) => (
         <>
@@ -47,9 +47,9 @@ const Dropdown = ({ title, children }: DropdownProps) => {
           >
             <Menu.Items
               static
-              className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+              className="z-50 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
             >
-              <div className="py-1 cursor-pointer">{children}</div>
+              <div className="py-1 cursor-pointer z-40">{children}</div>
             </Menu.Items>
           </Transition>
         </>

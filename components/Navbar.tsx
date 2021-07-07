@@ -43,7 +43,7 @@ const Navbar = () => {
                   </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-4 items-center">
                     {Object.keys(navigation).map((key, index) => (
                       <Dropdown title={key} key={index}>
                         {navigation[key].map((child, index) => (
@@ -58,7 +58,7 @@ const Navbar = () => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col mx-6 my-2">
               {Object.keys(navigation).map((key, index) => (
                 <Dropdown title={key} key={index}>
                   {navigation[key].map((child, index) => (
