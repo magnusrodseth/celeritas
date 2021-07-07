@@ -19,13 +19,13 @@ const navigation: { [title: string]: NavigationChild[] } = {
         // { name: "Graphs", href: "/data-structures/#" },
         // { name: "Undirected Graphs", href: "/data-structures/#" },
     ],
-    "Sorting Algorithms": [
-        { name: "Bubble Sort", href: "/sorting/bubble-sort" },
-        // { name: "Selection Sort", href: "/sorting/#" },
-    ],
-    "Pathfinding Algorithms": [
-        { name: "Dijkstra's Algorithm", href: "/pathfinding/dijkstra" }
-    ]
+    // "Sorting Algorithms": [
+    //     { name: "Bubble Sort", href: "/sorting/bubble-sort" },
+    //     // { name: "Selection Sort", href: "/sorting/#" },
+    // ],
+    // "Pathfinding Algorithms": [
+    //     { name: "Dijkstra's Algorithm", href: "/pathfinding/dijkstra" }
+    // ]
 }
 
 export default navigation
