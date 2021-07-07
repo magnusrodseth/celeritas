@@ -3,11 +3,15 @@ import classNames from "../../utils/classNames";
 
 interface CellProps {
   className?: string;
+  style?: any;
 }
 
-const Cell: React.FC<CellProps> = ({ className }) => {
+const Cell: React.FC<CellProps> = ({ className, style }) => {
   const styles = className || "";
-  return <div className={classNames("rounded-sm w-8 h-8", styles)} />;
+
+  return (
+    <div style={style} className={classNames("rounded-sm", styles)} />
+  );
 };
 
 export default Cell;

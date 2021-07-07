@@ -14,7 +14,7 @@ const Footer = () => {
         <a
           className={classNames(
             "text-center transition duration-500 ease-in-out transform",
-            "hover:-translate-y-1 hover:scale-105 text-blue-400 hover:text-blue-600 hover:underline"
+            "hover:-translate-y-1 hover:scale-105 text-indigo-400 hover:text-indigo-600 hover:underline"
           )}
         >
           Developed by Magnus Rødseth 💻
