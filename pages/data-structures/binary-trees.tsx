@@ -34,12 +34,12 @@ const BinaryTrees = () => {
     const value = event.currentTarget.valueAsNumber;
     setMaxValue(value);
   };
-
-  // Set the array to visualize
   const handleSubmit = (event: any) => {
     // Don't reload page
     event.preventDefault();
-    setArray(getRandomArrayInInterval(1, 100, 10));
+
+    // Set the array to visualize
+    setArray(getRandomArrayInInterval(minValue, maxValue, 10));
   };
 
   // Use ref to determine width and height of client screen
@@ -47,8 +47,6 @@ const BinaryTrees = () => {
 
   // Calculate current width and height with custom hook
   const { width, height } = useResize(ref);
-
-  console.log(width);
 
   return (
     <div ref={ref} className="flex flex-col justify-center">
@@ -70,7 +68,7 @@ const BinaryTrees = () => {
             <h1 className="text-4xl">Sorry!</h1>
             <p>
               The binary search tree visualization is not supported on this
-              screen. Minimum pixel width required is{" "}
+              screen. The minimum pixel width required is{" "}
               <strong>{PIXEL_WIDTH_EXTRA_LARGE} pixels.</strong>
             </p>
           </div>
@@ -92,7 +90,7 @@ const BinaryTrees = () => {
               maxValue={maxValue}
             />
 
-            <span className="text-xl font-mono uppercase text-center mx-4">
+            <span className="text-xl font-mono text-center mx-4">
               Your array: [<span>{array.join(", ")}</span>]
             </span>
 

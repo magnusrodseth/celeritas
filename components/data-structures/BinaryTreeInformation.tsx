@@ -3,7 +3,7 @@ import React from "react";
 const BinaryTreeInformation = ({}) => {
   return (
     <div className="my-4 w-7/12 flex flex-col space-y-4">
-      <h1 className="text-center text-2xl font-mono">Information</h1>
+      <h1 className="text-center text-2xl font-mono">Binary Search Tree Visualization</h1>
 
       <p>
         What you see below is a <strong>binary search tree</strong>, created
@@ -21,6 +21,8 @@ const BinaryTreeInformation = ({}) => {
         than the linear time required to find items by key in an (unsorted)
         array, but slower than the corresponding operations on hash tables.
       </p>
+
+      <p>My apologies for the low resolution on the canvas.</p>
     </div>
   );
 };
