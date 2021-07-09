@@ -23,9 +23,9 @@ const navigation: { [title: string]: NavigationChild[] } = {
     //     { name: "Bubble Sort", href: "/sorting/bubble-sort" },
     //     // { name: "Selection Sort", href: "/sorting/#" },
     // ],
-    "Pathfinding Algorithms": [
-        { name: "Dijkstra's Algorithm", href: "/pathfinding/dijkstra" }
-    ]
+    // "Pathfinding Algorithms": [
+    //     { name: "Dijkstra's Algorithm", href: "/pathfinding/dijkstra" }
+    // ]
 }
 
 export default navigation
