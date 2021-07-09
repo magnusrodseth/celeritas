@@ -132,12 +132,12 @@ export default class Tree {
                         context.strokeStyle = INDIGO_300
 
                         // Draw circle around nodes
-                        context.arc(x, y, node.radius, 0, 2 * Math.PI)
+                        context.arc(x+2, y, node.radius, 0, 2 * Math.PI)
                         context.stroke()
 
                         // Draw node value
                         context.strokeStyle = GRAY_900
-                        context.strokeText(node.value.toString(), x, y)
+                        context.strokeText(node.value.toString(), x-3, y+3)
 
                         node.children.forEach((child: Node) => {
                             const { x: x1, y: y1 } = child.position

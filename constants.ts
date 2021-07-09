@@ -11,6 +11,7 @@ export const DEFAULT_COLUMNS = 40;
 export const PIXEL_WIDTH_SMALL = 640;
 export const PIXEL_WIDTH_MEDIUM = 768;
 export const PIXEL_WIDTH_LARGE = 1024;
+export const PIXEL_WIDTH_EXTRA_LARGE = 1280;
 
 // Canvas constants
 export const AXIS_X = 350;

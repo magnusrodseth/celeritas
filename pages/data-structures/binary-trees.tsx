@@ -6,7 +6,7 @@ import Jumbotron from "../../components/Jumbotron";
 import {
   DEFAULT_MIN_VALUE,
   DEFAULT_MAX_VALUE,
-  PIXEL_WIDTH_MEDIUM,
+  PIXEL_WIDTH_EXTRA_LARGE,
 } from "../../constants";
 import useResize from "../../hooks/useResize";
 import classNames from "../../utils/classNames";
@@ -65,12 +65,13 @@ const BinaryTrees = () => {
           "flex w-screen flex-col space-y-4 justify-center items-center my-4"
         )}
       >
-        {width <= PIXEL_WIDTH_MEDIUM ? (
-          <div>
-            <h1>Oops!</h1>
+        {width <= PIXEL_WIDTH_EXTRA_LARGE ? (
+          <div className="flex flex-col space-y-3 font-mono text-center">
+            <h1 className="text-4xl">Sorry!</h1>
             <p>
-              Sorry, but the binary search tree visualization is not supported
-              on this screen.
+              The binary search tree visualization is not supported on this
+              screen. Minimum pixel width required is{" "}
+              <strong>{PIXEL_WIDTH_EXTRA_LARGE} pixels.</strong>
             </p>
           </div>
         ) : (
