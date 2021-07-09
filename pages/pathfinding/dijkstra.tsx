@@ -16,7 +16,7 @@ const Dijkstra = () => {
 
       <PathfindingInformation />
 
-      <Grid columns={DEFAULT_COLUMNS} rows={DEFAULT_ROWS} />
+      <Grid cols={DEFAULT_COLUMNS} rows={DEFAULT_ROWS} />
     </div>
   );
 };

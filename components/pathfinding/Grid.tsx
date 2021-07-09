@@ -9,30 +9,30 @@ import classNames from "../../utils/classNames";
 import Cell from "./Cell";
 
 interface GridProps {
-  columns: number;
+  cols: number;
   rows: number;
 }
 
-const Grid: React.FC<GridProps> = ({ columns, rows }) => {
+const Grid: React.FC<GridProps> = ({ cols, rows }) => {
   const rowArray = Array.from({ length: rows });
-  const columnArray = Array.from({ length: columns });
 
   const ref = useRef<HTMLDivElement>(null);
 
   // Calculate current width and height with custom hook
   const { width, height } = useResize(ref);
 
-  const [numberOfColumns, setNumberOfColumns] = useState(columns);
+  const [columns, setColumns] = useState(cols);
 
   useEffect(() => {
+    // Determine size of responsive grid
     if (width < PIXEL_WIDTH_SMALL) {
-      setNumberOfColumns(10);
+      setColumns(10);
     } else if (width >= PIXEL_WIDTH_SMALL && width < PIXEL_WIDTH_MEDIUM) {
-      setNumberOfColumns(13);
+      setColumns(13);
     } else if (width >= PIXEL_WIDTH_MEDIUM && width < PIXEL_WIDTH_LARGE) {
-      setNumberOfColumns(18);
+      setColumns(18);
     } else if (width >= PIXEL_WIDTH_LARGE) {
-      setNumberOfColumns(28);
+      setColumns(28);
     }
   }, [width]);
 
@@ -45,15 +45,13 @@ const Grid: React.FC<GridProps> = ({ columns, rows }) => {
         return (
           <div
             key={index}
-            className={classNames(
-              "flex flex-row justify-center items-center m-0.5"
-            )}
+            className={classNames("flex flex-row justify-center items-center")}
           >
-            {Array.from({ length: numberOfColumns }).map((column, index) => (
+            {Array.from({ length: columns }).map((column, index) => (
               <Cell
                 key={index}
                 className={classNames(
-                  "w-8 h-8 m-0.5 bg-gray-200"
+                  "w-8 h-8 bg-gray-200 border border-gray-400"
                 )}
               />
             ))}
