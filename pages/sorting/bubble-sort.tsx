@@ -7,7 +7,7 @@ import {
   DEFAULT_MAX_VALUE,
   DEFAULT_NUMBER_OF_ELEMENTS,
 } from "../../constants";
-import getRandomArrayInInterval from "../../utils/sorting/getRandomArrayInInterval";
+import getRandomArrayInInterval from "../../utils/getRandomArrayInInterval";
 
 const BubbleSort = () => {
   // States

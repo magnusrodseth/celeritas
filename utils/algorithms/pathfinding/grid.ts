@@ -13,6 +13,7 @@ export default class Grid {
         this.grid = []
 
         this.generateGrid();
+        this.setNeighbors();
     }
 
     generateGrid(): void {
@@ -20,19 +21,19 @@ export default class Grid {
             this.grid[row] = []
             for (let col = 0; col < this.columns; col++) {
                 const cell = new Cell({ x: col, y: row })
-
-                // Find and set neighbors per cell
-                const neighbors = this.getCellNeighbors(cell)
-                cell.neighbors = neighbors
-
                 this.grid[row][col] = cell;
             }
         }
     }
 
     generateMaze(cell: Cell) {
+        // Fill grid will only walls if it is completely void of any walls
+        if (this.grid.every(row => row.every(cell => !cell.isWall))) {
+            this.fillGridWithWalls();
+        }
+
         // The current cell has no unvisited neighbors
-        if (cell.hasNoUnvisitedNeighbors()) {
+        if (cell.shouldBacktrack()) {
 
             // Pop cells of the stack and check if they have unvisited neighbors
             while (this.visitedStack.length > 0) {
@@ -43,7 +44,7 @@ export default class Grid {
                 }
 
                 for (const neighbor of cell.neighbors) {
-                    if (!neighbor.isVisited) {
+                    if (!neighbor.isVisited && neighbor.isWall) {
                         this.generateMaze(neighbor)
                     }
                 }
@@ -51,14 +52,21 @@ export default class Grid {
         }
 
         this.visit(cell)
-        cell.isWall = true;
+        cell.isWall = false;
 
         for (const neighbor of cell.neighbors) {
-            while (!neighbor.isVisited) {
+            if (!neighbor.isVisited && neighbor.isAvailable(cell)) {
                 this.visit(neighbor)
-                neighbor.isWall = true
 
                 this.generateMaze(neighbor)
+            }
+        }
+    }
+
+    private fillGridWithWalls() {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.columns; col++) {
+                this.grid[row][col].isWall = true;
             }
         }
     }
@@ -70,11 +78,31 @@ export default class Grid {
         this.visitedStack.push(cell)
     }
 
-    private getCellNeighbors(cell: Cell): Cell[] {
+    private setNeighbors() {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.columns; col++) {
+                const cell = this.grid[row][col];
+
+                // Find and set neighbors per cell
+                const neighbors = this.getCellNeighbors(cell)
+                cell.neighbors = neighbors
+            }
+        }
+    }
+
+    getCellNeighbors(cell: Cell): Cell[] {
         const neighbors: Cell[] = []
 
-        for (let row = cell.y - 1; row <= cell.y + 1; row++) {
-            for (let col = cell.x - 1; col <= cell.x + 1; col++) {
+        for (let col = cell.x - 1; col <= cell.x + 1; col++) {
+            for (let row = cell.y - 1; row <= cell.y + 1; row++) {
+                // Skip diagonal neighbor cells above current cell
+                if ((row == cell.y - 1 && (col == cell.x - 1 || col == cell.x + 1))) {
+                    continue;
+                }
+                // Skip diagonal neighbor cells below current cell
+                if ((row == cell.y + 1 && (col == cell.x - 1 || col == cell.x + 1))) {
+                    continue;
+                }
                 // Currently visiting the cell. Do nothing.
                 if (row == cell.y && col == cell.x) {
                     continue;
@@ -88,11 +116,11 @@ export default class Grid {
                     continue;
                 }
 
-                // console.log(`Row: ${row} Col: ${col}`)
                 // Add neighboring cells inside bounds
                 neighbors.push(this.grid[row][col])
             }
         }
+
 
         return neighbors;
     }

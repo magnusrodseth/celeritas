@@ -23,10 +23,10 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
   // Generate responsive grid, and only update when columns or rows change
   const grid = new Grid(columns, rows);
 
-  const firstCell = grid.grid[1][1];
-  if (firstCell) {
-    // grid.generateMaze(grid.randomCell);
-    console.log(firstCell);
+  const randomCell = grid.randomCell;
+
+  if (randomCell) {
+    grid.generateMaze(randomCell);
   }
 
   return (

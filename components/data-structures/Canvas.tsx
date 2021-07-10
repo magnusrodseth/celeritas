@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
+import Tree from "../../utils/algorithms/data-structures/tree";
 import classNames from "../../utils/classNames";
-import Tree from "../../utils/data-structures/tree";
 
 interface CanvasProps {
   width?: number;

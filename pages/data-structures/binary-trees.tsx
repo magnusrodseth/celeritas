@@ -10,7 +10,7 @@ import {
 } from "../../constants";
 import useResize from "../../hooks/useResize";
 import classNames from "../../utils/classNames";
-import getRandomArrayInInterval from "../../utils/sorting/getRandomArrayInInterval";
+import getRandomArrayInInterval from "../../utils/getRandomArrayInInterval";
 
 // This constant should not be changed anywhere by the UI.
 // Because canvas is quite difficult to achieve responsiveness with,

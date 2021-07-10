@@ -21,8 +21,21 @@ export default class Cell {
         this.isVisited = true;
     }
 
-    hasNoUnvisitedNeighbors(){
+    shouldBacktrack() {
         return this.neighbors.every(neighbor => neighbor.isVisited)
+    }
+
+    /**
+     * A cell is available if every neighbor is has 0 other neighbors, except the `previous` cell.
+     **/
+    isAvailable(previous: Cell): boolean {
+        for (const neighbor of this.neighbors) {
+            if (neighbor != previous && neighbor.isVisited) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     // Getters and setters
