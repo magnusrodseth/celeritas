@@ -81,6 +81,15 @@ export default class Grid {
         }
     }
 
+    set startCell(cell: Cell) {
+        // Don't stop until we know that the start cell is not a wall cell
+        while (cell.isWall) {
+            cell = this.randomCell
+        }
+
+        cell.isStart = true;
+    }
+
     /**
      * Resets grid to default state.
      **/
@@ -162,7 +171,7 @@ export default class Grid {
     /**
      * Gets a random cell in the grid. Used as root cell when generating the maze.
      **/
-    get randomCell() {
+    get randomCell(): Cell {
         // Start at random cell
         const randomRow = getRandomNumberInInterval(0, this.grid.length - 1)
         const randomColumn = getRandomNumberInInterval(0, this.grid[0].length - 1)

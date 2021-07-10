@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "../../utils/classNames";
+import Button from "../Button";
 
 interface BinaryTreeFormProps {
   minValue: number;
@@ -69,19 +70,13 @@ const BinaryTreeForm: React.FC<BinaryTreeFormProps> = ({
         >
           Generate random array
         </label>
-        <button
-          className={classNames(
-            "w-full shadow-sm hover:shadow-md transition transform duration-500 ease-in-out",
-            "appearance-none border rounded py-2 px-3 text-gray-800",
-            "leading-tight focus:outline-none focus:shadow-outline bg-yellow-300",
-            "hover:bg-indigo-300 uppercase border border-transparent text-base font-medium"
-          )}
-          id="submit"
-          type="submit"
+
+        <Button
+          label="Generate"
           onClick={handleSubmit}
-        >
-          Generate
-        </button>
+          type="submit"
+          id="submit"
+        />
       </div>
     </form>
   );
