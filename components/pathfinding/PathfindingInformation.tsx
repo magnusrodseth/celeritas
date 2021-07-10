@@ -1,6 +1,6 @@
 import {
   HomeIcon as StartIcon,
-  LocationMarkerIcon as StopIcon,
+  LocationMarkerIcon as EndIcon,
   FireIcon as ObstacleIcon,
 } from "@heroicons/react/outline";
 import React from "react";
@@ -28,15 +28,15 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
           <span>Start Node</span>
         </div>
 
-        {/* Stop Node */}
+        {/* End Node */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
-          <StopIcon
+          <EndIcon
             className={classNames(
               "w-8 h-8",
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>Stop Node</span>
+          <span>End Node</span>
         </div>
 
         {/* Obstacle Node */}

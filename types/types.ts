@@ -3,3 +3,5 @@ export interface IExercise {
     description: string;
     markdown: string;
 }
+
+export interface IPosition { x: number; y: number; }

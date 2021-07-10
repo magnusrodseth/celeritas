@@ -6,6 +6,7 @@ import {
 } from "../../constants";
 import useColumns from "../../hooks/useColumns";
 import useResize from "../../hooks/useResize";
+import Grid from "../../utils/algorithms/pathfinding/grid";
 import classNames from "../../utils/classNames";
 import Cell from "./Cell";
 
@@ -13,7 +14,7 @@ interface GridProps {
   rows: number;
 }
 
-const Grid: React.FC<GridProps> = ({ rows }) => {
+const GridComponent: React.FC<GridProps> = ({ rows }) => {
   const rowArray = Array.from({ length: rows });
 
   const ref = useRef<HTMLDivElement>(null);
@@ -23,6 +24,8 @@ const Grid: React.FC<GridProps> = ({ rows }) => {
 
   // Calculate number of columns based on screen width using custom hook
   const columns = useColumns(width);
+
+  const grid = new Grid(columns, rows);
 
   return (
     <div
@@ -50,4 +53,4 @@ const Grid: React.FC<GridProps> = ({ rows }) => {
   );
 };
 
-export default Grid;
+export default GridComponent;

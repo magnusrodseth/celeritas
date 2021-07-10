@@ -1,4 +1,4 @@
-import { IPosition } from "./tree";
+import { IPosition } from "../../../types/types";
 
 const LEFT = 0
 const RIGHT = 1

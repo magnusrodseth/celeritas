@@ -1,7 +1,6 @@
-import { START_POSITION_Y, AXIS_X, AXIS_Y, INDIGO_300, GRAY_900 } from "../../constants";
+import { START_POSITION_Y, AXIS_X, AXIS_Y, INDIGO_300, GRAY_900 } from "../../../constants";
+import { IPosition } from "../../../types/types";
 import Node from "./node"
-
-export interface IPosition { x: number; y: number; }
 
 export default class Tree {
     /**
@@ -132,12 +131,12 @@ export default class Tree {
                         context.strokeStyle = INDIGO_300
 
                         // Draw circle around nodes
-                        context.arc(x+2, y, node.radius, 0, 2 * Math.PI)
+                        context.arc(x + 2, y, node.radius, 0, 2 * Math.PI)
                         context.stroke()
 
                         // Draw node value
                         context.strokeStyle = GRAY_900
-                        context.strokeText(node.value.toString(), x-3, y+3)
+                        context.strokeText(node.value.toString(), x - 3, y + 3)
 
                         node.children.forEach((child: Node) => {
                             const { x: x1, y: y1 } = child.position
