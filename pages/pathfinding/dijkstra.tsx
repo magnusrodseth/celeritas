@@ -1,6 +1,6 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron";
-import Grid from "../../components/pathfinding/Grid";
+import GridComponent from "../../components/pathfinding/GridComponent";
 import PathfindingInformation from "../../components/pathfinding/PathfindingInformation";
 import { DEFAULT_ROWS } from "../../constants";
 
@@ -16,7 +16,7 @@ const Dijkstra = () => {
 
       <PathfindingInformation />
 
-      <Grid rows={DEFAULT_ROWS} />
+      <GridComponent rows={DEFAULT_ROWS} />
     </div>
   );
 };

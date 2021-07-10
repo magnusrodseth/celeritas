@@ -1,22 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
-import {
-  PIXEL_WIDTH_LARGE,
-  PIXEL_WIDTH_MEDIUM,
-  PIXEL_WIDTH_SMALL,
-} from "../../constants";
+import React, { useRef } from "react";
 import useColumns from "../../hooks/useColumns";
 import useResize from "../../hooks/useResize";
 import Grid from "../../utils/algorithms/pathfinding/grid";
 import classNames from "../../utils/classNames";
-import Cell from "./Cell";
+import CellComponent from "./CellComponent";
 
 interface GridProps {
   rows: number;
 }
 
 const GridComponent: React.FC<GridProps> = ({ rows }) => {
-  const rowArray = Array.from({ length: rows });
-
+  // Used to get reference to screen width div to calculate screen width
   const ref = useRef<HTMLDivElement>(null);
 
   // Calculate current width and height with custom hook
@@ -25,6 +19,7 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
   // Calculate number of columns based on screen width using custom hook
   const columns = useColumns(width);
 
+  // Generate responsive
   const grid = new Grid(columns, rows);
 
   return (
@@ -32,18 +27,19 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
       className="flex flex-col justify-center items-center w-screen my-4"
       ref={ref}
     >
-      {rowArray.map((row, index) => {
+      {grid.grid.map((row, index) => {
         return (
           <div
             key={index}
             className={classNames("flex flex-row justify-center items-center")}
           >
-            {Array.from({ length: columns }).map((column, index) => (
-              <Cell
+            {row.map((cell, index) => (
+              <CellComponent
                 key={index}
                 className={classNames(
                   "w-8 h-8 bg-gray-200 border border-gray-400"
                 )}
+                cell={cell}
               />
             ))}
           </div>

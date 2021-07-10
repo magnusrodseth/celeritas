@@ -1,9 +1,5 @@
 import Cell from "./cell";
 
-interface Row {
-    columns: Cell[]
-}
-
 export default class Grid {
     columns: number;
     rows: number;
@@ -18,10 +14,10 @@ export default class Grid {
     }
 
     generateGrid(): void {
-        for (let col = 0; col < this.columns; col++) {
-            this.grid[col] = []
-            for (let row = 0; row < this.rows; row++) {
-                this.grid[col][row] = new Cell({ x: col, y: row })
+        for (let row = 0; row < this.rows; row++) {
+            this.grid[row] = []
+            for (let col = 0; col < this.columns; col++) {
+                this.grid[row][col] = new Cell({ x: col, y: row })
             }
         }
     }

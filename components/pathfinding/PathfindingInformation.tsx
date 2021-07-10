@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/outline";
 import React from "react";
 import classNames from "../../utils/classNames";
-import Cell from "./Cell";
+import CellComponent from "./CellComponent";
 
 interface PathfindingInformationProps {}
 
@@ -52,7 +52,7 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
 
         {/* Wall Node */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
-          <Cell
+          <CellComponent
             className={classNames(
               "w-8 h-8 bg-gray-600 border border-gray-800",
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
@@ -63,7 +63,7 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
 
         {/* Unvisited Node */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
-          <Cell
+          <CellComponent
             className={classNames(
               "w-8 h-8 bg-gray-200 border border-gray-400",
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
@@ -74,7 +74,7 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
 
         {/* Path Node */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
-          <Cell
+          <CellComponent
             className={classNames(
               "w-8 h-8 bg-yellow-400 border border-gray-900",
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
@@ -85,7 +85,7 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
 
         {/* Visited Node */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
-          <Cell
+          <CellComponent
             className={classNames(
               "w-8 h-8 bg-indigo-300 border border-indigo-900",
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
