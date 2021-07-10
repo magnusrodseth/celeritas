@@ -2,31 +2,99 @@ import { IPosition } from "../../../types/types";
 import getRandomNumberInInterval from "../../getRandomNumberInInterval";
 
 export default class Cell {
-    isWall: boolean = false;
-    isVisited: boolean = false;
-    isStart: boolean = false;
-    isEnd: boolean = false;
-    isObstacle: boolean = false;
-    isPath: boolean = false
-    neighbors: Cell[] = [];
-    x: number;
-    y: number;
+    private _isWall: boolean = false;
+    private _isVisited: boolean = false;
+    private _isStart: boolean = false;
+    private _isEnd: boolean = false;
+    private _isObstacle: boolean = false;
+    private _isPath: boolean = false;
+    private _neighbors: Cell[] = [];
+    private _x: number;
+    private _y: number;
 
     constructor({ x, y }: IPosition) {
-        this.x = x;
-        this.y = y;
-
-        for (let col = -1; col < 2; col++) {
-            for (let row = -1; row < 2; row++) {
-                this.neighbors.push()
-            }
-        }
+        this._x = x;
+        this._y = y;
     }
 
     visit() {
         this.isVisited = true;
+    }
 
-        const randomX = getRandomNumberInInterval(-1, 1);
-        const randomY = getRandomNumberInInterval(-1, 1);
+    hasNoUnvisitedNeighbors(){
+        return this.neighbors.every(neighbor => neighbor.isVisited)
+    }
+
+    // Getters and setters
+    public get y(): number {
+        return this._y;
+    }
+
+    public set y(value: number) {
+        this._y = value;
+    }
+
+    public get x(): number {
+        return this._x;
+    }
+
+    public set x(value: number) {
+        this._x = value;
+    }
+
+    public get neighbors(): Cell[] {
+        return this._neighbors;
+    }
+
+    public set neighbors(value: Cell[]) {
+        this._neighbors = value;
+    }
+
+    public get isPath(): boolean {
+        return this._isPath;
+    }
+
+    public set isPath(value: boolean) {
+        this._isPath = value;
+    }
+
+    public get isObstacle(): boolean {
+        return this._isObstacle;
+    }
+
+    public set isObstacle(value: boolean) {
+        this._isObstacle = value;
+    }
+
+    public get isEnd(): boolean {
+        return this._isEnd;
+    }
+
+    public set isEnd(value: boolean) {
+        this._isEnd = value;
+    }
+
+    public get isWall(): boolean {
+        return this._isWall;
+    }
+
+    public set isWall(value: boolean) {
+        this._isWall = value;
+    }
+
+    public get isVisited(): boolean {
+        return this._isVisited;
+    }
+
+    public set isVisited(value: boolean) {
+        this._isVisited = value;
+    }
+
+    public get isStart(): boolean {
+        return this._isStart;
+    }
+
+    public set isStart(value: boolean) {
+        this._isStart = value;
     }
 }

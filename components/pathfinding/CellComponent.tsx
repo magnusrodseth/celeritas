@@ -6,9 +6,15 @@ interface CellProps {
   className?: string;
   style?: any;
   cell?: Cell;
+  onClick?: (event: any) => void;
 }
 
-const CellComponent: React.FC<CellProps> = ({ className, style, cell }) => {
+const CellComponent: React.FC<CellProps> = ({
+  className,
+  style,
+  cell,
+  onClick,
+}) => {
   const styles = className || "";
 
   return (
@@ -19,7 +25,8 @@ const CellComponent: React.FC<CellProps> = ({ className, style, cell }) => {
         styles,
         cell && cell.isWall ? "bg-gray-600 border border-gray-800" : ""
       )}
-    />
+      onClick={onClick}
+    ></div>
   );
 };
 

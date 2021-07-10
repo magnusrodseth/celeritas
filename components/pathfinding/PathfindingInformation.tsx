@@ -95,7 +95,7 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col justify-center items-center space-y-2 md:flex-row md:space-x-2 md:space-y-0">
         {/* Find shortest path button */}
         <button
           className={classNames(
