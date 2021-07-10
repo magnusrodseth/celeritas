@@ -21,6 +21,11 @@ export default class Cell {
         this.isVisited = true;
     }
 
+    /**
+     * Determines when we should backtrack when generating a maze.
+     * We backtrack when every neighbor's neighbor of `this` cell have been visited.
+     * This guarantees a path from start node to end node.
+     **/
     shouldBacktrack() {
         return this.neighbors.every(neighbor => neighbor.isVisited)
     }

@@ -16,6 +16,9 @@ export default class Grid {
         this.setNeighbors();
     }
 
+    /**
+     * populates a two-dimensional array with Cell objects
+     **/
     generateGrid(): void {
         for (let row = 0; row < this.rows; row++) {
             this.grid[row] = []
@@ -26,6 +29,10 @@ export default class Grid {
         }
     }
 
+    /**
+     * Generates a maze with a guaranteed path from start to end node, using recursive backtracking.
+     * Pseudocode reference: https://en.wikipedia.org/wiki/Maze_generation_algorithm
+     **/
     generateMaze(cell: Cell) {
         // Fill grid will only walls if it is completely void of any walls
         if (this.grid.every(row => row.every(cell => !cell.isWall))) {
@@ -63,6 +70,9 @@ export default class Grid {
         }
     }
 
+    /**
+     * Filles the current grid with walls. Used before creating a maze.
+     **/
     private fillGridWithWalls() {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns; col++) {
@@ -71,6 +81,20 @@ export default class Grid {
         }
     }
 
+    /**
+     * Resets grid to default state.
+     **/
+    reset() {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.columns; col++) {
+                this.grid[row][col].isWall = false;
+            }
+        }
+    }
+
+    /**
+     * Visits a cell. Updates the `visitedStack` to facilitate for backtracking when needed.
+     **/
     visit(cell: Cell) {
         cell.visit()
 
@@ -78,6 +102,9 @@ export default class Grid {
         this.visitedStack.push(cell)
     }
 
+    /**
+     * Sets the neighbor cells of all cells.
+     **/
     private setNeighbors() {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns; col++) {
@@ -90,6 +117,9 @@ export default class Grid {
         }
     }
 
+    /**
+     * Gets all neighbors for a given cell.
+     **/
     getCellNeighbors(cell: Cell): Cell[] {
         const neighbors: Cell[] = []
 
@@ -125,15 +155,14 @@ export default class Grid {
         return neighbors;
     }
 
+    /**
+     * Gets a random cell in the grid. Used as root cell when generating the maze.
+     **/
     get randomCell() {
         // Start at random cell
         const randomRow = getRandomNumberInInterval(0, this.grid.length - 1)
         const randomColumn = getRandomNumberInInterval(0, this.grid[0].length - 1)
 
         return this.grid[randomRow][randomColumn];
-    }
-
-    updateCell(cell: Cell) {
-        this.grid[cell.y][cell.x] = cell;
     }
 }
