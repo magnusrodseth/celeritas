@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react"
 
+/**
+ * `useResize` returns the client screen dimensions in the form: `{ width: widthValue, height: heightValue }`
+ * by taking in a `ref` to a HTML `div` with full screen width.
+ **/
 const useResize = (ref: React.RefObject<HTMLDivElement>) => {
     const getDimensions = () => ref.current
         ? {

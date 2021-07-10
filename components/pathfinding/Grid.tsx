@@ -4,16 +4,16 @@ import {
   PIXEL_WIDTH_MEDIUM,
   PIXEL_WIDTH_SMALL,
 } from "../../constants";
+import useColumns from "../../hooks/useColumns";
 import useResize from "../../hooks/useResize";
 import classNames from "../../utils/classNames";
 import Cell from "./Cell";
 
 interface GridProps {
-  cols: number;
   rows: number;
 }
 
-const Grid: React.FC<GridProps> = ({ cols, rows }) => {
+const Grid: React.FC<GridProps> = ({ rows }) => {
   const rowArray = Array.from({ length: rows });
 
   const ref = useRef<HTMLDivElement>(null);
@@ -21,20 +21,8 @@ const Grid: React.FC<GridProps> = ({ cols, rows }) => {
   // Calculate current width and height with custom hook
   const { width, height } = useResize(ref);
 
-  const [columns, setColumns] = useState(cols);
-
-  useEffect(() => {
-    // Determine size of responsive grid
-    if (width < PIXEL_WIDTH_SMALL) {
-      setColumns(10);
-    } else if (width >= PIXEL_WIDTH_SMALL && width < PIXEL_WIDTH_MEDIUM) {
-      setColumns(13);
-    } else if (width >= PIXEL_WIDTH_MEDIUM && width < PIXEL_WIDTH_LARGE) {
-      setColumns(18);
-    } else if (width >= PIXEL_WIDTH_LARGE) {
-      setColumns(28);
-    }
-  }, [width]);
+  // Calculate number of columns based on screen width using custom hook
+  const columns = useColumns(width);
 
   return (
     <div
