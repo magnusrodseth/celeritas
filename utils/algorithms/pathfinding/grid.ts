@@ -85,11 +85,15 @@ export default class Grid {
      * Resets grid to default state.
      **/
     reset() {
+        const grid: Cell[][] = []
+
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns; col++) {
                 this.grid[row][col].isWall = false;
             }
         }
+
+        return grid;
     }
 
     /**

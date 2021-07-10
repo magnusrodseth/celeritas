@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import useColumns from "../../hooks/useColumns";
 import useResize from "../../hooks/useResize";
 import Grid from "../../utils/algorithms/pathfinding/grid";
@@ -19,26 +19,28 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
   // Calculate number of columns based on screen width using custom hook
   const columns = useColumns(width);
 
-  // Generate responsive grid, and only update when columns or rows change
-  const grid = new Grid(columns, rows);
+  // Generate responsive grid
+  const [grid, setGrid] = useState<Grid>(new Grid(columns, rows));
 
-  const randomCell = grid.randomCell;
-
-  if (randomCell) {
-    grid.generateMaze(randomCell);
-  }
-
+  // Event handlers
   const handleGenerateRandomMaze = () => {
-    grid.reset();
+    const grid = new Grid(columns, rows);
 
     const randomCell = grid.randomCell;
-
-    console.log(randomCell);
 
     if (randomCell) {
       grid.generateMaze(randomCell);
     }
+
+    setGrid(grid);
   };
+
+  // Only render grid when dynamic amount of columns are loaded
+  useEffect(() => {
+    if (columns > 0) {
+      setGrid(new Grid(columns, rows));
+    }
+  }, [columns, rows]);
 
   return (
     <div className="flex flex-col justify-center items-center" ref={ref}>
@@ -69,6 +71,7 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
 
       {/* Only render when grid is defined */}
       {grid &&
+        columns > 0 &&
         grid.grid.map((row, index) => {
           return (
             <div
