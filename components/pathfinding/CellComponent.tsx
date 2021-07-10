@@ -11,7 +11,16 @@ interface CellProps {
 const CellComponent: React.FC<CellProps> = ({ className, style, cell }) => {
   const styles = className || "";
 
-  return <div style={style} className={classNames("rounded-sm", styles)} />;
+  return (
+    <div
+      style={style}
+      className={classNames(
+        "rounded-sm",
+        styles,
+        cell && cell.isWall ? "bg-gray-600 border border-gray-800" : ""
+      )}
+    />
+  );
 };
 
 export default CellComponent;

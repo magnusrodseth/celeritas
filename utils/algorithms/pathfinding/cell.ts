@@ -1,5 +1,5 @@
 import { IPosition } from "../../../types/types";
-import getRandomNumberInInterval from "../../sorting/getRandomNumberInInterval";
+import getRandomNumberInInterval from "../../getRandomNumberInInterval";
 
 export default class Cell {
     isWall: boolean = false;
