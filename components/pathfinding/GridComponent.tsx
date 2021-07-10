@@ -23,28 +23,30 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
   // Generate responsive grid
   const [grid, setGrid] = useState<Grid>(new Grid(columns, rows));
 
-  // Event handlers
-  const handleGenerateRandomMaze = () => {
-    const grid = new Grid(columns, rows);
-
-    const randomCell = grid.randomCell;
-
-    if (randomCell) {
-      grid.generateMaze(randomCell);
-    }
-
-    setGrid(grid);
-  };
-
-  // Only render grid when dynamic amount of columns are loaded
+  // Redraw grid when dimensions change
   useEffect(() => {
-    if (columns > 0) {
-      setGrid(new Grid(columns, rows));
-    }
+    setGrid(new Grid(columns, rows));
   }, [columns, rows]);
 
+  // Event handlers
+  const handleGenerateRandomMaze = () => {
+    const newGrid = new Grid(columns, rows);
+
+    const randomCell = newGrid.randomCell;
+
+    if (randomCell) {
+      newGrid.reset();
+      console.log(
+        newGrid.grid.filter((row) => row.filter((cell) => cell.isWall))
+      );
+      newGrid.generateMaze(randomCell);
+    }
+
+    setGrid(newGrid);
+  };
+
   return (
-    <div className="flex flex-col justify-center items-center" ref={ref}>
+    <div className="flex flex-col justify-center items-center mb-6" ref={ref}>
       <div className="flex flex-col my-4 justify-center items-center space-y-2 md:flex-row md:space-x-2 md:space-y-0">
         {/* Find shortest path button */}
         <Button label="Find shortest path" />
@@ -57,30 +59,24 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
       </div>
 
       {/* Only render when grid is defined */}
-      {grid &&
-        columns > 0 &&
-        grid.grid.map((row, index) => {
-          return (
-            <div
-              key={index}
-              className={classNames(
-                "flex flex-row justify-center items-center"
-              )}
-            >
-              {rows &&
-                rows > 0 &&
-                row.map((cell, index) => (
-                  <CellComponent
-                    key={index}
-                    className={classNames(
-                      "w-8 h-8 bg-gray-200 border border-gray-400"
-                    )}
-                    cell={cell}
-                  />
-                ))}
-            </div>
-          );
-        })}
+      {grid.grid.map((row, index) => {
+        return (
+          <div
+            key={index}
+            className={classNames("flex flex-row justify-center items-center")}
+          >
+            {row.map((cell, index) => (
+              <CellComponent
+                key={index}
+                className={classNames(
+                  "w-8 h-8 bg-gray-200 border border-gray-400"
+                )}
+                cell={cell}
+              />
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 };

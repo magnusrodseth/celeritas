@@ -3,7 +3,7 @@ import {
   LocationMarkerIcon as EndIcon,
   FireIcon as ObstacleIcon,
 } from "@heroicons/react/outline";
-import React from "react";
+import React, { SyntheticEvent, useEffect, useRef } from "react";
 import classNames from "../../utils/classNames";
 import CellComponent from "./CellComponent";
 
@@ -17,7 +17,7 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
           "flex flex-row flex-wrap justify-center items-center space-x-4 my-4"
         )}
       >
-        {/* Start Node */}
+        {/* Start Cell */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
           <StartIcon
             className={classNames(
@@ -25,10 +25,10 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>Start Node</span>
+          <span>Start Cell</span>
         </div>
 
-        {/* End Node */}
+        {/* End Cell */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
           <EndIcon
             className={classNames(
@@ -36,10 +36,10 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>End Node</span>
+          <span>End Cell</span>
         </div>
 
-        {/* Obstacle Node */}
+        {/* Obstacle Cell */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
           <ObstacleIcon
             className={classNames(
@@ -47,10 +47,10 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>Obstacle Node</span>
+          <span>Obstacle Cell</span>
         </div>
 
-        {/* Wall Node */}
+        {/* Wall Cell */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
           <CellComponent
             className={classNames(
@@ -58,10 +58,10 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>Wall Node</span>
+          <span>Wall Cell</span>
         </div>
 
-        {/* Unvisited Node */}
+        {/* Unvisited Cell */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
           <CellComponent
             className={classNames(
@@ -69,10 +69,10 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>Unvisited Node</span>
+          <span>Unvisited Cell</span>
         </div>
 
-        {/* Path Node */}
+        {/* Path Cell */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
           <CellComponent
             className={classNames(
@@ -80,10 +80,10 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>Path Node</span>
+          <span>Path Cell</span>
         </div>
 
-        {/* Visited Node */}
+        {/* Visited Cell */}
         <div className="flex flex-row items-center justify-center space-x-2 mb-6">
           <CellComponent
             className={classNames(
@@ -91,7 +91,7 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
               "transition transform duration-500 ease-in-out hover:-translate-y-1"
             )}
           />
-          <span>Visited Node</span>
+          <span>Visited Cell</span>
         </div>
       </div>
     </div>

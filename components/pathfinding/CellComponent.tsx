@@ -33,6 +33,7 @@ const CellComponent: React.FC<CellProps> = ({
       onClick={onClick}
     >
       {cell && cell.isStart ? <StartIcon /> : null}
+      {cell && cell.isEnd ? <EndIcon /> : null}
     </div>
   );
 };

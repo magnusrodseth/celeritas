@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import Jumbotron from "../../components/Jumbotron";
 import GridComponent from "../../components/pathfinding/GridComponent";
 import PathfindingInformation from "../../components/pathfinding/PathfindingInformation";
