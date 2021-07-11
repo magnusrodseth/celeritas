@@ -1,14 +1,14 @@
 import { IPosition } from "../../../types/types";
 import getRandomNumberInInterval from "../../getRandomNumberInInterval";
 
-export default class Cell {
+export default class Node {
     private _isWall: boolean = false;
     private _isVisited: boolean = false;
     private _isStart: boolean = false;
     private _isEnd: boolean = false;
     private _isObstacle: boolean = false;
     private _isPath: boolean = false;
-    private _neighbors: Cell[] = [];
+    private _neighbors: Node[] = [];
     private _x: number;
     private _y: number;
 
@@ -33,7 +33,7 @@ export default class Cell {
     /**
      * A cell is available if every neighbor is has 0 other neighbors, except the `previous` cell.
      **/
-    isAvailable(previous: Cell): boolean {
+    isAvailable(previous: Node): boolean {
         for (const neighbor of this.neighbors) {
             if (neighbor != previous && neighbor.isVisited) {
                 return false;
@@ -60,11 +60,11 @@ export default class Cell {
         this._x = value;
     }
 
-    public get neighbors(): Cell[] {
+    public get neighbors(): Node[] {
         return this._neighbors;
     }
 
-    public set neighbors(value: Cell[]) {
+    public set neighbors(value: Node[]) {
         this._neighbors = value;
     }
 

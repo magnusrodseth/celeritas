@@ -1,23 +1,23 @@
 import React from "react";
 import classNames from "../../utils/classNames";
-import Cell from "../../utils/algorithms/pathfinding/cell";
+import Node from "../../utils/algorithms/pathfinding/node";
 import {
   HomeIcon as StartIcon,
   LocationMarkerIcon as EndIcon,
   FireIcon as ObstacleIcon,
 } from "@heroicons/react/outline";
 
-interface CellProps {
+interface NodeProps {
   className?: string;
   style?: any;
-  cell?: Cell;
+  node?: Node;
   onClick?: (event: any) => void;
 }
 
-const CellComponent: React.FC<CellProps> = ({
+const CellComponent: React.FC<NodeProps> = ({
   className,
   style,
-  cell,
+  node,
   onClick,
 }) => {
   const styles = className || "";
@@ -28,12 +28,12 @@ const CellComponent: React.FC<CellProps> = ({
       className={classNames(
         "rounded-sm",
         styles,
-        cell && cell.isWall ? "bg-gray-600 border border-gray-800" : ""
+        node && node.isWall ? "bg-gray-600 border border-gray-800" : ""
       )}
       onClick={onClick}
     >
-      {cell && cell.isStart ? <StartIcon /> : null}
-      {cell && cell.isEnd ? <EndIcon /> : null}
+      {node && node.isStart ? <StartIcon /> : null}
+      {node && node.isEnd ? <EndIcon /> : null}
     </div>
   );
 };

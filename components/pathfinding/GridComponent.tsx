@@ -4,7 +4,7 @@ import useResize from "../../hooks/useResize";
 import Grid from "../../utils/algorithms/pathfinding/grid";
 import classNames from "../../utils/classNames";
 import Button from "../Button";
-import CellComponent from "./CellComponent";
+import CellComponent from "./NodeComponent";
 
 interface GridProps {
   rows: number;
@@ -32,7 +32,7 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
   const handleGenerateRandomMaze = () => {
     const newGrid = new Grid(columns, rows);
 
-    const randomCell = newGrid.randomCell;
+    const randomCell = newGrid.randomNode;
 
     if (randomCell) {
       newGrid.reset();
@@ -71,7 +71,7 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
                 className={classNames(
                   "w-8 h-8 bg-gray-200 border border-gray-400"
                 )}
-                cell={cell}
+                node={cell}
               />
             ))}
           </div>
