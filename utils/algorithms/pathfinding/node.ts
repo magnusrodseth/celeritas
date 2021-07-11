@@ -1,6 +1,4 @@
-import { useRef } from "react";
 import { IPosition } from "../../../types/types";
-import getRandomNumberInInterval from "../../getRandomNumberInInterval";
 
 export default class Node {
     private _isWall: boolean = false;
@@ -13,7 +11,6 @@ export default class Node {
     private _x: number;
     private _y: number;
     private _distance: number = 0;
-    private _weight: number = 0;
     private _previous: Node | undefined = undefined;
 
     constructor({ x, y }: IPosition) {
@@ -27,7 +24,7 @@ export default class Node {
 
     /**
      * Determines when we should backtrack when generating a maze.
-     * We backtrack when every neighbor's neighbor of `this` cell have been visited.
+     * We backtrack when every neighbor's neighbor of `this` node have been visited.
      * This guarantees a path from start node to end node.
      **/
     shouldBacktrack() {
@@ -35,7 +32,7 @@ export default class Node {
     }
 
     /**
-     * A cell is available if every neighbor is has 0 other neighbors, except the `previous` cell.
+     * A node is available if every neighbor is has 0 other neighbors, except the `previous` node.
      **/
     isAvailable(previous: Node): boolean {
         for (const neighbor of this.neighbors) {
@@ -125,13 +122,6 @@ export default class Node {
     }
     public set distance(value: number) {
         this._distance = value;
-    }
-
-    public get weight(): number {
-        return this._weight;
-    }
-    public set weight(value: number) {
-        this._weight = value;
     }
 
     public get previous(): Node | undefined {

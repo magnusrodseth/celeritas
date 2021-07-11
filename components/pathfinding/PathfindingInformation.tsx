@@ -18,8 +18,13 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
         </h1>
 
         <p>
-          This site is still a <strong>work in progress</strong>. It currently
-          supports maze generation using{" "}
+          Click the <strong>New grid</strong> button to clear the current grid
+          and create a new grid.
+        </p>
+
+        <p>
+          Click the <strong>Generate random maze</strong> button to generate a
+          maze using{" "}
           <strong>
             randomized depth-first search with recursive backtracking
           </strong>
@@ -27,14 +32,9 @@ const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
         </p>
 
         <p>
-          Future support includes <strong>pathfinding visualization</strong> to
-          find the shortest path between start and end node through the
-          generated maze.
-        </p>
-
-        <p>
-          Click the <strong>Generate random maze</strong> to see the algorithm
-          in action.
+          Click the <strong>Visualize shortest path</strong> to see a{" "}
+          <strong>real-time visualization</strong> of the current pathfinding
+          algorithm in action.
         </p>
       </div>
       <div

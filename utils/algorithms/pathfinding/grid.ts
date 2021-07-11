@@ -107,7 +107,7 @@ export default class Grid {
     }
 
     /**
-     * Filles the current grid with walls. Used before creating a maze.
+     * Fills the current grid with walls. Used before creating a maze.
      **/
     private fillGridWithWalls() {
         for (let row = 0; row < this.rows; row++) {
@@ -117,6 +117,9 @@ export default class Grid {
         }
     }
 
+    /**
+     * Clears the grid of visited nodes.
+     **/
     clearVisited() {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns; col++) {

@@ -1,6 +1,13 @@
 import Node from "./node";
 
-const dijkstra = (grid: Node[][], source: Node, target: Node) => {
+/**
+ * An implementation of Dijkstra's algorithm.
+ * Note that this implementation is not very efficient with regards to complexity.
+ * Rather, the purpose of this implementation is to visualize the algorithm with a small grid.
+ * 
+ * Returns all visited nodes.
+ **/
+const dijkstra = (grid: Node[][], source: Node, target: Node): Node[] => {
     // This array keeps track of unvisited nodes
     const unvisitedNodes: Node[] = getAllNodes(grid);
 
@@ -53,7 +60,7 @@ const dijkstra = (grid: Node[][], source: Node, target: Node) => {
 }
 
 /**
- * Sort nodes by ascending distance.
+ * Sorts nodes by ascending distance.
  **/
 const sortNodesByDistance = (nodes: Node[]) => {
     nodes.sort((first: Node, second: Node) => first.distance - second.distance)
@@ -89,19 +96,21 @@ const getAllNodes = (grid: Node[][]) => {
     return nodes;
 }
 
-export const getNodesByShortestPath = (target: Node): Node[] => {
-    const nodesByShortestPath: Node[] = []
 
-    let current: Node | undefined = target;
+// TODO: Not yet implemented successfully.
+// export const getNodesByShortestPath = (target: Node): Node[] => {
+//     const nodesByShortestPath: Node[] = []
 
-    while (current != undefined) {
-        // Add current node at the start of the array, kind of like a queue
-        nodesByShortestPath.unshift(current)
+//     let current: Node | undefined = target;
 
-        current = current.previous
-    }
+//     while (current != undefined) {
+//         // Add current node at the start of the array, kind of like a queue
+//         nodesByShortestPath.unshift(current)
 
-    return nodesByShortestPath
-}
+//         current = current.previous
+//     }
+
+//     return nodesByShortestPath
+// }
 
 export default dijkstra
