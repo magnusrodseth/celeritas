@@ -16,6 +16,9 @@ export default class Grid {
      * 
      * In practise, this constructor allows one to pass in a grid to duplicate it, or
      * only columns and rows to initialize a new `Grid`.
+     * 
+     * We need to be able to copy an existing grid because React `useState` only re-renders component
+     * and sub-components when **new** objects are passed in to the `useState` method.
      **/
     constructor(columns: number, rows: number, grid?: Grid) {
         this._columns = grid && grid.columns || columns;
@@ -30,10 +33,10 @@ export default class Grid {
 
         // Set start and end cell
         this._startNode = grid && grid.startNode || this.randomNode
-        this._endNode = grid && grid.startNode || this.randomNode
+        this._endNode = grid && grid.endNode || this.randomNode
 
         this.startNode = grid && grid.startNode || this._startNode
-        this.endNode = grid && grid.startNode || this._endNode
+        this.endNode = grid && grid.endNode || this._endNode
     }
 
     /**

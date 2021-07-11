@@ -26,8 +26,8 @@ const dijkstra = (grid: Node[][], source: Node, target: Node) => {
         const current = unvisitedNodes.shift()
 
         if (current) {
-            // Skip the current node if it is a wall
-            if (current.isWall) {
+            // Skip the current node if it is a wall or an obstacle
+            if (current.isWall || current.isObstacle) {
                 continue;
             }
 
@@ -36,8 +36,6 @@ const dijkstra = (grid: Node[][], source: Node, target: Node) => {
             if (current.distance == Infinity) {
                 return visitedNodes;
             }
-
-            // current.isVisited = true;
 
             // Add the node with the shortest path
             visitedNodes.push(current)
@@ -65,12 +63,14 @@ const sortNodesByDistance = (nodes: Node[]) => {
  * Updates a given node's neighbors distance value.
  **/
 const updateNeighbors = (node: Node) => {
-    for (const neighbor of node.neighbors) {
+    // Visit all unvisited neighbors
+    for (const neighbor of node.neighbors.filter(neighbor => !neighbor.isVisited)) {
         // Because this is in a grid where each node is 1 x 1,
         // the distance from one node to another is always 1.
         // Note that if the length between each node was variable, 
         // then we would have to implement a more advanced distance calculation.
         neighbor.distance = node.distance + 1
+        neighbor.previous = node
     }
 }
 
@@ -87,6 +87,21 @@ const getAllNodes = (grid: Node[][]) => {
     }
 
     return nodes;
+}
+
+export const getNodesByShortestPath = (target: Node): Node[] => {
+    const nodesByShortestPath: Node[] = []
+
+    let current: Node | undefined = target;
+
+    while (current != undefined) {
+        // Add current node at the start of the array, kind of like a queue
+        nodesByShortestPath.unshift(current)
+
+        current = current.previous
+    }
+
+    return nodesByShortestPath
 }
 
 export default dijkstra

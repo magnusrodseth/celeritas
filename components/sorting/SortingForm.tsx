@@ -5,6 +5,7 @@ import {
   DEFAULT_NUMBER_OF_ELEMENTS,
 } from "../../constants";
 import classNames from "../../utils/classNames";
+import Button from "../Button";
 
 interface SortingFormProps {
   minValue: number;
@@ -99,17 +100,7 @@ const SortingForm: React.FC<SortingFormProps> = ({
           </div>
         </div>
         <div>
-          <button
-            type="submit"
-            className={classNames(
-              "mx-4 inline-flex items-center justify-center px-6 py-2 border border-transparent",
-              "text-base font-medium rounded-md text-gray-900 bg-yellow-300 hover:bg-indigo-300",
-              "transition transform duration-500 ease-in-out uppercase tracking-wider"
-            )}
-            onClick={handleSubmit}
-          >
-            Sort
-          </button>
+          <Button type="submit" onClick={handleSubmit} label="Sort" />
         </div>
       </form>
     </div>

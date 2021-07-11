@@ -19,3 +19,6 @@ export const AXIS_Y = 80;
 export const START_POSITION_Y = 44;
 export const INDIGO_300 = "#A5B4FC";
 export const GRAY_900 = "#111827";
+
+// Pathfinding constants
+export const DELAY_MILLISECONDS = 15;

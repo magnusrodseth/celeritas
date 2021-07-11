@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { IPosition } from "../../../types/types";
 import getRandomNumberInInterval from "../../getRandomNumberInInterval";
 

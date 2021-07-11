@@ -42,7 +42,7 @@ const Index = () => {
             </Link>
           </div>
           <div className="ml-3 inline-flex rounded-md shadow">
-            <Link href="#">
+            <Link href="/pathfinding/dijkstra">
               <a
                 className={classNames(
                   "inline-flex items-center justify-center px-5 py-3 border border-transparent",
@@ -51,7 +51,7 @@ const Index = () => {
                   "transition transform duration-500 ease-in-out"
                 )}
               >
-                Link 2
+                Dijkstra&apos;s Algorithm
               </a>
             </Link>
           </div>

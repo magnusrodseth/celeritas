@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import classNames from "../../utils/classNames";
 import Node from "../../utils/algorithms/pathfinding/node";
 import {
