@@ -12,6 +12,31 @@ interface PathfindingInformationProps {}
 const PathfindingInformation: React.FC<PathfindingInformationProps> = ({}) => {
   return (
     <div className="flex flex-col justify-center items-center">
+      <div className="my-4 w-7/12 flex flex-col space-y-4">
+        <h1 className="text-center text-2xl font-mono">
+          Pathfinding Visualization
+        </h1>
+
+        <p>
+          This site is still a <strong>work in progress</strong>. It currently
+          supports maze generation using{" "}
+          <strong>
+            randomized depth-first search with recursive backtracking
+          </strong>
+          . This guarantees a path from start to end node.
+        </p>
+
+        <p>
+          Future support includes <strong>pathfinding visualization</strong> to
+          find the shortest path between start and end node through the
+          generated maze.
+        </p>
+
+        <p>
+          Click the <strong>Generate random maze</strong> to see the algorithm
+          in action.
+        </p>
+      </div>
       <div
         className={classNames(
           "flex flex-row flex-wrap justify-center items-center space-x-4 my-4"

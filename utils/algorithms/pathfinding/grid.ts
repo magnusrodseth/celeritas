@@ -6,20 +6,34 @@ export default class Grid {
     private _rows: number;
     private _grid: Node[][];
     private _visitedStack: Node[] = [];
-    private _startNode: Node | undefined
-    private _endNode: Node | undefined
+    private _startNode: Node;
+    private _endNode: Node;
 
-    constructor(columns: number, rows: number) {
-        this._columns = columns;
-        this._rows = rows;
-        this._grid = []
+    /**
+     * Initializes an instance of the `Grid` class.
+     * Because TypeScript's implementation of constructor overloading is a bit wonky,
+     * this implementation will do.
+     * 
+     * In practise, this constructor allows one to pass in a grid to duplicate it, or
+     * only columns and rows to initialize a new `Grid`.
+     **/
+    constructor(columns: number, rows: number, grid?: Grid) {
+        this._columns = grid && grid.columns || columns;
+        this._rows = grid && grid.rows || rows;
 
-        this.generateGrid();
-        this.setNeighbors();
+        this._grid = grid && grid.grid || []
+
+        if (!grid) {
+            this.generateGrid();
+            this.setNeighbors();
+        }
 
         // Set start and end cell
-        this.startNode = this.randomNode
-        this.endNode = this.randomNode
+        this._startNode = grid && grid.startNode || this.randomNode
+        this._endNode = grid && grid.startNode || this.randomNode
+
+        this.startNode = grid && grid.startNode || this._startNode
+        this.endNode = grid && grid.startNode || this._endNode
     }
 
     /**
@@ -100,6 +114,14 @@ export default class Grid {
         }
     }
 
+    clearVisited() {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.columns; col++) {
+                this.grid[row][col].isVisited = false;
+            }
+        }
+    }
+
     /**
      * Resets grid to default state.
      **/
@@ -107,6 +129,9 @@ export default class Grid {
         for (let row = 0; row < this.rows; row++) {
             for (let col = 0; col < this.columns; col++) {
                 this.grid[row][col].isWall = false;
+                this.grid[row][col].isVisited = false;
+                this.grid[row][col].isPath = false;
+                this.grid[row][col].isObstacle = false;
             }
         }
     }
@@ -185,30 +210,37 @@ export default class Grid {
         return this.grid[randomRow][randomColumn];
     }
 
-    set startNode(node: Node) {
+    public get startNode(): Node {
+        return this._startNode;
+    }
+    public set startNode(node: Node) {
         if (node) {
-            // Ensure cell is not a wall
+            // Ensure node is not a wall
             while (node.isWall) {
                 node = this.randomNode;
             }
 
             this._startNode = node;
 
-            // Set start cell
+            // Set start node
             this._startNode.isStart = true;
         }
     }
 
+    public get endNode(): Node {
+        return this._endNode;
+    }
+
     set endNode(node: Node) {
         if (node) {
-            // Ensure cell is not a wall
+            // Ensure node is not a wall
             while (node.isWall) {
                 node = this.randomNode;
             }
 
             this._endNode = node;
 
-            // Set end cell
+            // Set end node
             this._endNode.isEnd = true;
         }
     }

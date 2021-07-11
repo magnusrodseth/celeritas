@@ -28,7 +28,9 @@ const CellComponent: React.FC<NodeProps> = ({
       className={classNames(
         "rounded-sm",
         styles,
-        node && node.isWall ? "bg-gray-600 border border-gray-800" : ""
+        node && node.isWall ? "bg-gray-600 border border-gray-800" : "",
+        node && node.isPath ? "bg-yellow-400 border border-gray-900" : "",
+        node && node.isVisited ? "bg-indigo-300 border border-indigo-900" : ""
       )}
       onClick={onClick}
     >

@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import useColumns from "../../hooks/useColumns";
 import useResize from "../../hooks/useResize";
+import dijkstra from "../../utils/algorithms/pathfinding/dijkstra";
 import Grid from "../../utils/algorithms/pathfinding/grid";
+import Node from "../../utils/algorithms/pathfinding/node";
 import classNames from "../../utils/classNames";
 import Button from "../Button";
 import CellComponent from "./NodeComponent";
@@ -30,26 +32,55 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
 
   // Event handlers
   const handleGenerateRandomMaze = () => {
-    const newGrid = new Grid(columns, rows);
+    const gridWithMaze = new Grid(grid.columns, grid.rows, grid);
+    gridWithMaze.reset();
 
-    const randomCell = newGrid.randomNode;
+    const randomNode = gridWithMaze.randomNode;
 
-    if (randomCell) {
-      newGrid.reset();
-      console.log(
-        newGrid.grid.filter((row) => row.filter((cell) => cell.isWall))
-      );
-      newGrid.generateMaze(randomCell);
+    if (randomNode) {
+      // Start maze generation at random node
+      gridWithMaze.generateMaze(randomNode);
+
+      // Clear visited nodes for visual effect
+      gridWithMaze.clearVisited();
     }
 
-    setGrid(newGrid);
+    setGrid(gridWithMaze);
+  };
+
+  /**
+   * Animates the sequence of visited nodes before finding the shortest path from start to end node.
+   **/
+  const animateVisualizeShortestPath = (nodesInOrder: Node[]) => {
+    for (let i = 0; i < nodesInOrder.length; i++) {
+      setTimeout(() => {
+        console.log("this runs");
+
+        const copy = new Grid(grid.columns, grid.rows, grid);
+        const node = nodesInOrder[i];
+
+        node.isVisited = true;
+
+        copy.grid[node.y][node.x] = node;
+
+        setGrid(copy);
+      }, 20 * i);
+    }
+  };
+
+  const handleVisualizeShortestPath = () => {
+    const visitedNodes = dijkstra(grid.grid, grid.startNode, grid.endNode);
+    animateVisualizeShortestPath(visitedNodes);
   };
 
   return (
     <div className="flex flex-col justify-center items-center mb-6" ref={ref}>
       <div className="flex flex-col my-4 justify-center items-center space-y-2 md:flex-row md:space-x-2 md:space-y-0">
-        {/* Find shortest path button */}
-        <Button label="Find shortest path" />
+        {/* Visualize button */}
+        <Button
+          label="Visualize shortest path"
+          onClick={handleVisualizeShortestPath}
+        />
 
         {/* Generate random maze button */}
         <Button
@@ -58,7 +89,6 @@ const GridComponent: React.FC<GridProps> = ({ rows }) => {
         />
       </div>
 
-      {/* Only render when grid is defined */}
       {grid.grid.map((row, index) => {
         return (
           <div

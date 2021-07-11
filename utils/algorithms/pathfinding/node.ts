@@ -11,6 +11,9 @@ export default class Node {
     private _neighbors: Node[] = [];
     private _x: number;
     private _y: number;
+    private _distance: number = 0;
+    private _weight: number = 0;
+    private _previous: Node | undefined = undefined;
 
     constructor({ x, y }: IPosition) {
         this._x = x;
@@ -114,5 +117,26 @@ export default class Node {
 
     public set isStart(value: boolean) {
         this._isStart = value;
+    }
+
+    public get distance(): number {
+        return this._distance;
+    }
+    public set distance(value: number) {
+        this._distance = value;
+    }
+
+    public get weight(): number {
+        return this._weight;
+    }
+    public set weight(value: number) {
+        this._weight = value;
+    }
+
+    public get previous(): Node | undefined {
+        return this._previous;
+    }
+    public set previous(value: Node | undefined) {
+        this._previous = value;
     }
 }
