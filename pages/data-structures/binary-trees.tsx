@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import BinaryTreeForm from "../../components/data-structures/BinaryTreeForm";
 import BinaryTreeInformation from "../../components/data-structures/BinaryTreeInformation";
 import Canvas from "../../components/data-structures/Canvas";
+import ExerciseCollection from "../../components/ExerciseCollection";
+import exercises from "../../utils/exercises/binaryTrees";
 import Jumbotron from "../../components/Jumbotron";
 import {
   DEFAULT_MIN_VALUE,
@@ -107,6 +109,8 @@ const BinaryTrees = () => {
           </div>
         )}
       </div>
+
+      <ExerciseCollection exercises={exercises} />
     </div>
   );
 };
