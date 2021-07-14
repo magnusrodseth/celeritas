@@ -44,6 +44,8 @@ const dijkstra = (grid: Node[][], source: Node, target: Node): Node[] => {
                 return visitedNodes;
             }
 
+            current.isVisited = true;
+
             // Add the node with the shortest path
             visitedNodes.push(current)
             updateNeighbors(current)
@@ -97,20 +99,19 @@ const getAllNodes = (grid: Node[][]) => {
 }
 
 
-// TODO: Not yet implemented successfully.
-// export const getNodesByShortestPath = (target: Node): Node[] => {
-//     const nodesByShortestPath: Node[] = []
+export const getNodesByShortestPath = (target: Node): Node[] => {
+    const nodesByShortestPath: Node[] = []
 
-//     let current: Node | undefined = target;
+    let current: Node | undefined = target;
 
-//     while (current != undefined) {
-//         // Add current node at the start of the array, kind of like a queue
-//         nodesByShortestPath.unshift(current)
+    while (current != undefined) {
+        // Add current node at the start of the array, kind of like a queue
+        nodesByShortestPath.unshift(current)
 
-//         current = current.previous
-//     }
+        current = current.previous
+    }
 
-//     return nodesByShortestPath
-// }
+    return nodesByShortestPath
+}
 
 export default dijkstra

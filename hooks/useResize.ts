@@ -19,8 +19,6 @@ const useResize = (ref: React.RefObject<HTMLDivElement>) => {
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
 
     useEffect(() => {
-
-        console.log(ref)
         const handleResize = () => {
             setDimensions(getDimensions())
         }

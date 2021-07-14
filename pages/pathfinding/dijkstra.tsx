@@ -5,7 +5,9 @@ import PathfindingInformation from "../../components/pathfinding/PathfindingInfo
 import { DEFAULT_ROWS, DELAY_MILLISECONDS } from "../../constants";
 import useColumns from "../../hooks/useColumns";
 import useResize from "../../hooks/useResize";
-import dijkstra from "../../utils/algorithms/pathfinding/dijkstra";
+import dijkstra, {
+  getNodesByShortestPath,
+} from "../../utils/algorithms/pathfinding/dijkstra";
 import Grid from "../../utils/algorithms/pathfinding/grid";
 import Node from "../../utils/algorithms/pathfinding/node";
 
@@ -47,7 +49,13 @@ const Dijkstra = () => {
 
   const handleVisualizeShortestPath = () => {
     const visitedNodes = dijkstra(grid.grid, grid.startNode, grid.endNode);
-    animateVisualizeShortestPath(visitedNodes);
+    const shortestPath = getNodesByShortestPath(grid.endNode);
+
+    // Reset grid to handle visual effect of visited nodes
+    grid.clearVisited();
+    setGrid(new Grid(grid.columns, grid.rows, grid));
+
+    animateDijkstra(visitedNodes, shortestPath);
   };
 
   const handleNewGrid = () => {
@@ -55,16 +63,38 @@ const Dijkstra = () => {
   };
 
   /**
-   * Animates the sequence of visited nodes.
+   * Animates the sequence of pathfinding using Dijkstra.
    **/
-  const animateVisualizeShortestPath = (visitedNodes: Node[]) => {
-    for (let i = 0; i < visitedNodes.length; i++) {
+  const animateDijkstra = (visitedNodes: Node[], shortestPath: Node[]) => {
+    for (let i = 0; i <= visitedNodes.length; i++) {
+      if (i === visitedNodes.length) {
+        animateShortestPath(shortestPath);
+
+        return;
+      }
+
       setTimeout(() => {
         const copy = new Grid(grid.columns, grid.rows, grid);
         const node = visitedNodes[i];
 
         // Visually represent that this node has been visited
         node.isVisited = true;
+
+        copy.grid[node.y][node.x] = node;
+
+        setGrid(copy);
+      }, DELAY_MILLISECONDS * i);
+    }
+  };
+
+  const animateShortestPath = (shortestPath: Node[]) => {
+    for (let i = 0; i < shortestPath.length; i++) {
+      setTimeout(() => {
+        const copy = new Grid(grid.columns, grid.rows, grid);
+        const node = shortestPath[i];
+
+        // Visually represent that this node is part of shortest path
+        node.isPath = true;
 
         copy.grid[node.y][node.x] = node;
 
