@@ -18,7 +18,7 @@ Celeritas is a website for visualizing data structures and algorithms.
 
 ## Developer Information 🙋🏼‍♂️
 
-Developed by Magnus Rødseth.
+Developed by Magnus Rødseth, Summer 2021.
 
 ## Tech Stack 🛠
 
@@ -26,8 +26,6 @@ Developed by Magnus Rødseth.
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Formidable Labs Victory](https://formidable.com/open-source/victory/), for data visualization
-- [Formidable Labs Spectacle](https://formidable.com/open-source/spectacle/), for live demo code
 
 ## Running the application ✅
 
