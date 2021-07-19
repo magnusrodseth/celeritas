@@ -14,7 +14,7 @@ const navigation: { [title: string]: NavigationChild[] } = {
     "Non-linear Data Structures": [
         { name: "Binary Trees", href: "/data-structures/binary-trees" },
         { name: "AVL Trees", href: "/data-structures/avl-trees" },
-        // { name: "Heaps", href: "/data-structures/#" },
+        { name: "Heaps", href: "/data-structures/heaps" },
         // { name: "Tries", href: "/data-structures/#" },
         // { name: "Graphs", href: "/data-structures/#" },
         // { name: "Undirected Graphs", href: "/data-structures/#" },
