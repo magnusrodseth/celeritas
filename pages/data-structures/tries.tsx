@@ -1,16 +1,16 @@
 import React from "react";
 import ExerciseCollection from "../../components/ExerciseCollection";
 import Jumbotron from "../../components/Jumbotron";
-import exercises from "../../utils/exercises/heaps";
+import exercises from "../../utils/exercises/tries";
 
-const Heaps = () => {
+const Tries = () => {
   return (
     <div className="flex flex-col justify-center">
       <Jumbotron
-        title="Heaps"
+        title="Tries"
         description={`
-        A tree data structure with two main properties: 
-        The tree is complete, and does not violate the heap property.
+        A tree data structure where each node can relate to several other nodes.
+        Perfect for implementing autocompletion.
         `}
       />
 
@@ -19,4 +19,4 @@ const Heaps = () => {
   );
 };
 
-export default Heaps;
+export default Tries;

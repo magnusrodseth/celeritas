@@ -15,7 +15,7 @@ const navigation: { [title: string]: NavigationChild[] } = {
         { name: "Binary Trees", href: "/data-structures/binary-trees" },
         { name: "AVL Trees", href: "/data-structures/avl-trees" },
         { name: "Heaps", href: "/data-structures/heaps" },
-        // { name: "Tries", href: "/data-structures/#" },
+        { name: "Tries", href: "/data-structures/tries" },
         // { name: "Graphs", href: "/data-structures/#" },
         // { name: "Undirected Graphs", href: "/data-structures/#" },
     ],
