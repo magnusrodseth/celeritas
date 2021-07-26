@@ -16,8 +16,7 @@ const navigation: { [title: string]: NavigationChild[] } = {
         { name: "AVL Trees", href: "/data-structures/avl-trees" },
         { name: "Heaps", href: "/data-structures/heaps" },
         { name: "Tries", href: "/data-structures/tries" },
-        { name: "Graphs", href: "/data-structures/graphs" },
-        // { name: "Undirected Graphs", href: "/data-structures/#" },
+        { name: "Graphs", href: "/data-structures/graphs" }
     ],
     // "Sorting Algorithms": [
     //     { name: "Bubble Sort", href: "/sorting/bubble-sort" },
