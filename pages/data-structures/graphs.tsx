@@ -3,15 +3,16 @@ import ExerciseCollection from "../../components/ExerciseCollection";
 import Jumbotron from "../../components/Jumbotron";
 import exercises from "../../utils/exercises/graphs";
 
-const DirectedGraphs = () => {
+const Graphs = () => {
   return (
     <div className="flex flex-col justify-center">
       <Jumbotron
-        title="Directed Graphs"
+        title="Graphs"
         description={`
         A data structure for modeling relationships between objects.
         No limitations on how many edges a node can have.
-        Edges have a start and end node, and are thus directed.
+        Nodes are connected by edges, and can be either directed or undirected, 
+        and either weighted or unweighted.
         `}
       />
 
@@ -20,4 +21,4 @@ const DirectedGraphs = () => {
   );
 };
 
-export default DirectedGraphs;
+export default Graphs;
