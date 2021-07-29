@@ -29,7 +29,7 @@ const Index = () => {
         </h2>
         <div className="m-4 flex lg:mt-0 lg:flex-shrink-0">
           <div className="inline-flex rounded-md shadow">
-            <Link href="/data-structures/binary-trees">
+            <Link href="/sorting/bubble-sort">
               <a
                 className={classNames(
                   "inline-flex items-center justify-center px-5 py-3 border border-transparent",
@@ -37,7 +37,7 @@ const Index = () => {
                   "transition transform duration-500 ease-in-out"
                 )}
               >
-                Binary Trees
+                Bubble Sort
               </a>
             </Link>
           </div>
