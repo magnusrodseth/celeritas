@@ -27,7 +27,7 @@ const SortingForm: React.FC<SortingFormProps> = ({
   handleSubmit,
 }) => {
   return (
-    <div className="my-8 mx-4">
+    <div className="my-8 mx-4 flex flex-col justify-center items-center">
       <form className="flex flex-col justify-center items-center space-y-4 md:flex-row md:space-x-4 md:space-y-0">
         <div className="tracking-wider">
           <label

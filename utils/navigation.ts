@@ -18,10 +18,10 @@ const navigation: { [title: string]: NavigationChild[] } = {
         { name: "Tries", href: "/data-structures/tries" },
         { name: "Graphs", href: "/data-structures/graphs" }
     ],
-    // "Sorting Algorithms": [
-    //     { name: "Bubble Sort", href: "/sorting/bubble-sort" },
-    //     // { name: "Selection Sort", href: "/sorting/#" },
-    // ],
+    "Sorting Algorithms": [
+        { name: "Bubble Sort", href: "/sorting/bubble-sort" },
+        // { name: "Selection Sort", href: "/sorting/#" },
+    ],
     "Pathfinding Algorithms": [
         { name: "Dijkstra's Algorithm", href: "/pathfinding/dijkstra" }
     ]

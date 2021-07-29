@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import useResize from "../../hooks/useResize";
 import classNames from "../../utils/classNames";
-import getBarHeight from "../../utils/sorting/getBarHeight";
-
+import getBarHeight from "../../utils/algorithms/sorting/getBarHeight";
+import Bar from "../../utils/algorithms/sorting/bar";
 interface BarChartProps {
-  array: number[];
+  array: Bar[];
 }
 
 const BarChart: React.FC<BarChartProps> = ({ array }) => {
@@ -18,13 +18,13 @@ const BarChart: React.FC<BarChartProps> = ({ array }) => {
       className="flex flex-row mx-auto justify-center items-center w-3/4 h-80"
       ref={ref}
     >
-      {array.map((value, index) => {
+      {array.map((bar, index) => {
         // Dynamically calculate the BarChart child dimensions
         const dynamicWidth = `${width / array.length}px`;
         const dynamicMarginX = `${width / array.length / 10}px`;
 
         const styles = {
-          height: getBarHeight(value),
+          height: getBarHeight(bar.value),
           marginLeft: dynamicMarginX,
           marginRight: dynamicMarginX,
           width: dynamicWidth,
@@ -34,7 +34,10 @@ const BarChart: React.FC<BarChartProps> = ({ array }) => {
           <div
             key={index}
             style={styles}
-            className={classNames("bg-yellow-300")}
+            className={classNames(
+              bar.sorting ? "bg-indigo-200" : "",
+              "bg-yellow-300"
+            )}
           />
         );
       })}
