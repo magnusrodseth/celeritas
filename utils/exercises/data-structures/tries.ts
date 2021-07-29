@@ -1,4 +1,4 @@
-import Trie from "../../markdown/data-structures/tries/Trie"
+import Trie from "../../../markdown/data-structures/tries/Trie"
 
 const exercises = [
     {

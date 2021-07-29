@@ -1,7 +1,7 @@
 import React from "react";
 import ExerciseCollection from "../../components/ExerciseCollection";
 import Jumbotron from "../../components/Jumbotron";
-import exercises from "../../utils/exercises/graphs";
+import exercises from "../../utils/exercises/data-structures/graphs";
 
 const Graphs = () => {
   return (

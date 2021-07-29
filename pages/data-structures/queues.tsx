@@ -1,6 +1,6 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron";
-import exercises from "../../utils/exercises/queues";
+import exercises from "../../utils/exercises/data-structures/queues";
 import ExerciseCollection from "../../components/ExerciseCollection";
 
 const Queues = () => {

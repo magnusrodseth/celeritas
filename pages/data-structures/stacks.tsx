@@ -1,6 +1,6 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron";
-import exercises from "../../utils/exercises/stacks";
+import exercises from "../../utils/exercises/data-structures/stacks";
 import ExerciseCollection from "../../components/ExerciseCollection";
 
 const Stacks = () => {

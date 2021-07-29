@@ -1,7 +1,7 @@
-import ArrayQueue from "../../markdown/data-structures/queues/ArrayQueue";
-import PriorityQueue from "../../markdown/data-structures/queues/PriorityQueue";
-import ReverseQueue from "../../markdown/data-structures/queues/ReverseQueue";
-import StackQueue from "../../markdown/data-structures/queues/StackQueue";
+import ArrayQueue from "../../../markdown/data-structures/queues/ArrayQueue";
+import PriorityQueue from "../../../markdown/data-structures/queues/PriorityQueue";
+import ReverseQueue from "../../../markdown/data-structures/queues/ReverseQueue";
+import StackQueue from "../../../markdown/data-structures/queues/StackQueue";
 
 const exercises = [
     {

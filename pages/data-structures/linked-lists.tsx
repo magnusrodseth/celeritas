@@ -1,6 +1,6 @@
 import React from "react";
 import Jumbotron from "../../components/Jumbotron";
-import exercises from "../../utils/exercises/linkedLists";
+import exercises from "../../utils/exercises/data-structures/linkedLists";
 import ExerciseCollection from "../../components/ExerciseCollection";
 
 const LinkedLists = () => {

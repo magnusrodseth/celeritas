@@ -1,4 +1,4 @@
-import BinaryTree from "../../markdown/data-structures/binary-trees/BinaryTree";
+import BinaryTree from "../../../markdown/data-structures/binary-trees/BinaryTree";
 
 const exercises = [
     {

@@ -1,6 +1,6 @@
-import FirstNonRepeatingCharacter from "../../markdown/data-structures/hash-tables/FirstNonRepeatingCharacter";
-import FirstRepeatedCharacter from "../../markdown/data-structures/hash-tables/FirstRepeatedCharacter";
-import HashTable from "../../markdown/data-structures/hash-tables/HashTable";
+import FirstNonRepeatingCharacter from "../../../markdown/data-structures/hash-tables/FirstNonRepeatingCharacter";
+import FirstRepeatedCharacter from "../../../markdown/data-structures/hash-tables/FirstRepeatedCharacter";
+import HashTable from "../../../markdown/data-structures/hash-tables/HashTable";
 
 const exercises = [
     {

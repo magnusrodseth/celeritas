@@ -1,7 +1,7 @@
-import Heap from "../../markdown/data-structures/heaps/Heap"
-import HeapifyIterative from "../../markdown/data-structures/heaps/HeapifyIterative"
-import HeapifyRecursive from "../../markdown/data-structures/heaps/HeapifyRecursive"
-import PriorityQueueWithHeap from "../../markdown/data-structures/heaps/PriorityQueueWithHeap"
+import Heap from "../../../markdown/data-structures/heaps/Heap"
+import HeapifyIterative from "../../../markdown/data-structures/heaps/HeapifyIterative"
+import HeapifyRecursive from "../../../markdown/data-structures/heaps/HeapifyRecursive"
+import PriorityQueueWithHeap from "../../../markdown/data-structures/heaps/PriorityQueueWithHeap"
 
 const exercises = [
     {

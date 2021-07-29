@@ -1,4 +1,4 @@
-import AVLTree from "../../markdown/data-structures/avl-trees/AVLTree"
+import AVLTree from "../../../markdown/data-structures/avl-trees/AVLTree"
 
 const exercises = [
     {

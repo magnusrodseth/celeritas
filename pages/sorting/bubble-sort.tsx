@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ExerciseCollection from "../../components/ExerciseCollection";
 import Jumbotron from "../../components/Jumbotron";
 import BarChart from "../../components/sorting/BarChart";
 import SortingForm from "../../components/sorting/SortingForm";
@@ -9,10 +10,10 @@ import {
   DELAY_MILLISECONDS,
 } from "../../constants";
 import Bar from "../../utils/algorithms/sorting/bar";
-import bubbleSort from "../../utils/algorithms/sorting/bubbleSort";
 import numbersToBars from "../../utils/algorithms/sorting/numbersToBars";
 import getRandomArrayInInterval from "../../utils/getRandomArrayInInterval";
 import swap from "../../utils/swap";
+import exercises from "../../utils/exercises/sorting/bubbleSort";
 
 const BubbleSort = () => {
   // States
@@ -117,6 +118,8 @@ const BubbleSort = () => {
       />
 
       <BarChart array={array} />
+
+      <ExerciseCollection exercises={exercises} />
     </div>
   );
 };

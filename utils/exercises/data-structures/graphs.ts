@@ -1,8 +1,8 @@
-import DirectedGraph from "../../markdown/data-structures/graphs/DirectedGraph"
-import WeightedGraph from "../../markdown/data-structures/graphs/WeightedGraph"
-import GetMinimumPath from "../../markdown/data-structures/graphs/GetMinimumPath"
-import GetMinimumSpanningTree from "../../markdown/data-structures/graphs/GetMinimumSpanningTree"
-import HasCycle from "../../markdown/data-structures/graphs/HasCycle"
+import DirectedGraph from "../../../markdown/data-structures/graphs/DirectedGraph"
+import WeightedGraph from "../../../markdown/data-structures/graphs/WeightedGraph"
+import GetMinimumPath from "../../../markdown/data-structures/graphs/GetMinimumPath"
+import GetMinimumSpanningTree from "../../../markdown/data-structures/graphs/GetMinimumSpanningTree"
+import HasCycle from "../../../markdown/data-structures/graphs/HasCycle"
 
 const exercises = [
     {
