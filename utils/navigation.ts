@@ -20,7 +20,8 @@ const navigation: { [title: string]: NavigationChild[] } = {
     ],
     "Sorting Algorithms": [
         { name: "Bubble Sort", href: "/sorting/bubble-sort" },
-        // { name: "Selection Sort", href: "/sorting/#" },
+        { name: "Selection Sort", href: "/sorting/selection-sort" },
+        { name: "Merge Sort", href: "/sorting/merge-sort" },
     ],
     "Pathfinding Algorithms": [
         { name: "Dijkstra's Algorithm", href: "/pathfinding/dijkstra" }

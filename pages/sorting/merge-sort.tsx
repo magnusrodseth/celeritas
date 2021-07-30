@@ -7,14 +7,13 @@ import {
   DEFAULT_MIN_VALUE,
   DEFAULT_MAX_VALUE,
   DEFAULT_NUMBER_OF_ELEMENTS,
-  DELAY_MILLISECONDS,
 } from "../../constants";
 import Bar from "../../utils/algorithms/sorting/bar";
 import numbersToBars from "../../utils/algorithms/sorting/numbersToBars";
 import getRandomArrayInInterval from "../../utils/getRandomArrayInInterval";
-import exercises from "../../utils/exercises/sorting/bubbleSort";
+import exercises from "../../utils/exercises/sorting/mergeSort";
 
-const BubbleSort = () => {
+const MergeSort = () => {
   // States
   const [minValue, setMinValue] = useState(DEFAULT_MIN_VALUE);
   const [maxValue, setMaxValue] = useState(DEFAULT_MAX_VALUE);
@@ -40,48 +39,9 @@ const BubbleSort = () => {
     const value = event.currentTarget.valueAsNumber;
     setNumberOfElements(value);
   };
+
   const handleSubmit = (event: any) => {
-    animateBubbleSort(array);
     event.preventDefault();
-  };
-
-  // Animation
-  const animateBubbleSort = (array: Bar[]) => {
-    for (let i = 0; i < array.length; i++) {
-      const copy = array.map((bar) => bar);
-      bubbleSort(copy);
-    }
-  };
-
-  const bubbleSort = (array: Bar[]) => {
-    for (let i = 0; i < array.length - 1; i++) {
-      setTimeout(() => {
-        for (let j = 0; j < array.length - i - 1; j++) {
-          if (array[j].value > array[j + 1].value) {
-            swap(j + 1, j, array);
-          }
-          array[i].sorting = true;
-
-          setArray(array);
-        }
-      }, DELAY_MILLISECONDS * i);
-    }
-  };
-
-  /**
-   * Swaps two values in an array.
-   * Note the difference between the swap method and selection sort's swap method.
-   * Becuase of some wonky UI states, the bubble sort only visually sorts correctly when we swap the
-   * entire Bar objects.
-   *
-   * @param first the index of the first value
-   * @param second the index of the second value
-   * @array the array with values to swap
-   **/
-  const swap = (first: number, second: number, array: Bar[]) => {
-    const firstValue = array[first];
-    array[first] = array[second];
-    array[second] = firstValue;
   };
 
   // This is used to update the number of elements displayed
@@ -97,34 +57,28 @@ const BubbleSort = () => {
   return (
     <div className="flex flex-col justify-center">
       <Jumbotron
-        title="Bubble Sort"
+        title="Merge Sort"
         description={`
-        Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. 
-        The pass through the list is repeated until the list is sorted.
-        Performs poorly in real world use.
+        Recursively splits array into subarrays until the subarrays cannot be split any more.
+        The subarrays are then merged in order to create the sorted array.
+        Requires more memory allocation. A divide-and-conquer algorithm.
         `}
       />
 
-      <div className="flex flex-col justify-center items-center w-screen">
+      {/* <div className="flex flex-col justify-center items-center w-screen">
         <div className="my-4 w-7/12 flex flex-col space-y-4">
           <h1 className="text-center text-2xl font-mono">
-            Bubble Sort Visualization
+            Merge Sort Visualization
           </h1>
 
           <p>
-            Use the options below to configure the bubble sort. Please note that
-            - as mentioned above - bubble sort performs poorly in real world
-            use, and{" "}
-            <strong>
-              will take a very long time to sort any array with number of
-              elements greater than approximately 50
-            </strong>
-            .
+            Use the options below to configure the merge sort. The algorithm is
+            fit for larger sized arrays.
           </p>
         </div>
-      </div>
+      </div> */}
 
-      <SortingForm
+      {/* <SortingForm
         minValue={minValue}
         maxValue={maxValue}
         numberOfElements={numberOfElements}
@@ -132,13 +86,13 @@ const BubbleSort = () => {
         handleMaxValue={handleMaxValue}
         handleNumberOfElements={handleNumberOfElements}
         handleSubmit={handleSubmit}
-      />
+      /> */}
 
-      <BarChart array={array} />
+      {/* <BarChart array={array} /> */}
 
       <ExerciseCollection exercises={exercises} />
     </div>
   );
 };
 
-export default BubbleSort;
+export default MergeSort;

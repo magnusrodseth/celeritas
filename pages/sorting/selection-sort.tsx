@@ -12,9 +12,9 @@ import {
 import Bar from "../../utils/algorithms/sorting/bar";
 import numbersToBars from "../../utils/algorithms/sorting/numbersToBars";
 import getRandomArrayInInterval from "../../utils/getRandomArrayInInterval";
-import exercises from "../../utils/exercises/sorting/bubbleSort";
+import exercises from "../../utils/exercises/sorting/selectionSort";
 
-const BubbleSort = () => {
+const SelectionSort = () => {
   // States
   const [minValue, setMinValue] = useState(DEFAULT_MIN_VALUE);
   const [maxValue, setMaxValue] = useState(DEFAULT_MAX_VALUE);
@@ -41,27 +41,32 @@ const BubbleSort = () => {
     setNumberOfElements(value);
   };
   const handleSubmit = (event: any) => {
-    animateBubbleSort(array);
+    animateSelectionSort(array);
     event.preventDefault();
   };
 
   // Animation
-  const animateBubbleSort = (array: Bar[]) => {
+  const animateSelectionSort = (array: Bar[]) => {
+    // TODO: This does not work yet.
     for (let i = 0; i < array.length; i++) {
       const copy = array.map((bar) => bar);
-      bubbleSort(copy);
+      selectionSort(copy);
     }
   };
 
-  const bubbleSort = (array: Bar[]) => {
-    for (let i = 0; i < array.length - 1; i++) {
+  const selectionSort = (array: Bar[]) => {
+    for (let i = 0; i < array.length; i++) {
+      let minIndex = i;
+
       setTimeout(() => {
-        for (let j = 0; j < array.length - i - 1; j++) {
-          if (array[j].value > array[j + 1].value) {
-            swap(j + 1, j, array);
+        for (let j = i; j < array.length; j++) {
+          if (array[j].value < array[minIndex].value) {
+            minIndex = j;
+          }
+          if (array[minIndex].value != array[i].value) {
+            swap(i, minIndex, array);
           }
           array[i].sorting = true;
-
           setArray(array);
         }
       }, DELAY_MILLISECONDS * i);
@@ -70,18 +75,18 @@ const BubbleSort = () => {
 
   /**
    * Swaps two values in an array.
-   * Note the difference between the swap method and selection sort's swap method.
-   * Becuase of some wonky UI states, the bubble sort only visually sorts correctly when we swap the
-   * entire Bar objects.
-   *
+   * Note the difference between the swap method and bubble sort's swap method.
+   * Becuase of some wonky UI states, the selection sort only visually sorts correctly when we swap the 
+   * values of each Bar object.
+   * 
    * @param first the index of the first value
    * @param second the index of the second value
    * @array the array with values to swap
    **/
   const swap = (first: number, second: number, array: Bar[]) => {
-    const firstValue = array[first];
-    array[first] = array[second];
-    array[second] = firstValue;
+    const firstValue = array[first].value;
+    array[first].value = array[second].value;
+    array[second].value = firstValue;
   };
 
   // This is used to update the number of elements displayed
@@ -97,24 +102,24 @@ const BubbleSort = () => {
   return (
     <div className="flex flex-col justify-center">
       <Jumbotron
-        title="Bubble Sort"
+        title="Selection Sort"
         description={`
-        Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. 
-        The pass through the list is repeated until the list is sorted.
-        Performs poorly in real world use.
+        A simple sorting algorithm, sometimes useful when memory usage is critical.
+        Generally a very slow algorithm for larger arrays.
+        Sorts the array in-place, keeping track of a sorted and unsorted sublist within the array.
         `}
       />
 
       <div className="flex flex-col justify-center items-center w-screen">
         <div className="my-4 w-7/12 flex flex-col space-y-4">
           <h1 className="text-center text-2xl font-mono">
-            Bubble Sort Visualization
+            Selection Sort Visualization
           </h1>
 
           <p>
-            Use the options below to configure the bubble sort. Please note that
-            - as mentioned above - bubble sort performs poorly in real world
-            use, and{" "}
+            Use the options below to configure the selection sort. Please note
+            that - as mentioned above - selection sort performs poorly in real
+            world use, and{" "}
             <strong>
               will take a very long time to sort any array with number of
               elements greater than approximately 50
@@ -141,4 +146,4 @@ const BubbleSort = () => {
   );
 };
 
-export default BubbleSort;
+export default SelectionSort;
