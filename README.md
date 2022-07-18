@@ -4,8 +4,6 @@
 
 You can see a live demo of the website by clicking **[here](https://celeritas.vercel.app/)**. Enjoy!
 
-Note that this project is currently a work in progress, as of summer 2021.
-
 ## Snapshot 📸
 
 ![Snapshot of Celeritas Landing Page](./demo/landing-page.png)
